@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>IDEA_java web</display-name>
+<servlet>
+        <servlet-name>logon</servlet-name>
+        <servlet-class>servlet.LogonServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>register</servlet-name>
+        <servlet-class>servlet.RegisterServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>studentinfo</servlet-name>
+        <servlet-class>servlet.StudentInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>studentManage</servlet-name>
+        <servlet-class>servlet.StudentManageServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>getstudentinfo</servlet-name>
+        <servlet-class>servlet.GetStudentinfoServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>updatestudent</servlet-name>
+        <servlet-class>servlet.UpdateStudentServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>addstudent</servlet-name>
+        <servlet-class>servlet.AddStudentServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>delstudent</servlet-name>
+        <servlet-class>servlet.DelStudentServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>querystudents</servlet-name>
+        <servlet-class>servlet.QueryStudentsServlet</servlet-class>
+    </servlet>
+
+
+
+    <servlet-mapping>
+        <servlet-name>logon</servlet-name>
+        <url-pattern>/logon</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>studentinfo</servlet-name>
+        <url-pattern>/studentinfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>studentManage</servlet-name>
+        <url-pattern>/studentManage</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>getstudentinfo</servlet-name>
+        <url-pattern>/getstudentinfo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>updatestudent</servlet-name>
+        <url-pattern>/updatestudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>addstudent</servlet-name>
+        <url-pattern>/addstudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>delstudent</servlet-name>
+        <url-pattern>/delstudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>querystudents</servlet-name>
+        <url-pattern>/querystudents</url-pattern>
+    </servlet-mapping>
+  
+  <filter>
+  
+  	<filter-name>characterfilter</filter-name>
+  	<filter-class>filter.CharacterFilter</filter-class>
+  	
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  	
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>characterfilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+    <welcome-file-list>
+        <welcome-file>main.jsp</welcome-file>
+    </welcome-file-list>
+    
+<!-- 十分钟后自动退出登录  -->
+    <session-config>
+    	<session-timeout>10</session-timeout>
+    </session-config>
+    
+</web-app>

@@ -1,0 +1,171 @@
+
+h1 {
+    text-shadow: 1px 1px 1px gray;
+    text-align: center;
+    color:#FFC1C1;
+}
+body {
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed; /*当页面的其余部分滚动时，背景图像不会移动*/
+    background-size: cover;
+}
+
+a:link{ /*超链接*/
+    color:rebeccapurple; /*字体颜色*/
+    text-decoration: none; /*下划线*/
+}
+
+a:hover { /*超链接鼠标放上去时的状态*/
+    background-color: #B4C6E7;
+    color: white;
+}
+/*表头*/
+.mylable {
+    text-shadow: 1px 1px 1px gray;
+    text-align: right;
+    font-family: microsoft yahei;
+    font-size: 18px;
+    color:lavenderblush;
+}
+
+/*文本框*/
+input {
+    font-family: microsoft yahei;
+    font-size: 16px;
+}
+
+/*文本条*/
+.areainput {
+    font-family: microsoft yahei;
+    font-size: 16px;
+}
+
+/*提示*/
+.err { /*错误提示格式*/
+    display: none; /*初始状态为关闭*/
+    font-size: 12px; /*字体大小*/
+    text-align:left; /*对齐方式*/
+    color: crimson; /*字体颜色*/
+}
+
+.tip { /*填写提示格式*/
+    display: none; /*初始状态为关闭*/
+    font-size: 12px; /*字体大小*/
+    text-align:left;/*对齐方式*/
+    color: darkgray; /*字体颜色*/
+}
+
+/*提交按钮*/
+.mybutton {
+    border: 1px outset #fffbf0;
+    background-color:#EDF1F9;
+    width: 50px;
+    height: 30px;
+    font-family: microsoft yahei;
+}
+
+/***********以下为首页格式***********/
+
+/*头*/
+.header {
+    width: 100%; /*宽度*/
+    height: 20%; /*高度*/
+    text-align: center; /*文本对齐方式*/
+    background-color: #2F5496; /*背景颜色*/
+}
+
+.header1 { /*logo*/
+    float: left;
+}
+
+.header2 {/*系统名字*/
+    width: 30%; /*宽度*/
+    float: left;
+    font-size: 40px;
+    color: white;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    padding-left: 30px;
+    margin-left: 50px;
+    font-family:华文行楷;
+}
+
+.header3 {
+    float: right;
+    font-size: 12px;
+    color: #d6ecf0;
+    padding-top: 10px;
+    padding-right: 30px;
+    text-align: center;
+}
+
+/*导航*/
+.nav { /*导航栏*/
+    width: 100%; /*宽度*/
+    height: 3%; /*高度*/
+    text-align: left; /*文本对齐方式*/
+    background:rgba(47,84,150,0.6);/*背景颜色*/
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.nav a { /*导航内容*/
+    width: 20%; /*宽度*/
+    text-align: left; /*文本对齐方式*/
+    font-size: 16px;
+    padding: 5px 20px;
+}
+
+
+/*左导航*/
+.leftnav {
+    width: 10%; /*宽度*/
+    height: 75%; /*高度*/
+    text-align: center; /*文本对齐方式*/
+    background:rgba(47,84,150,0.6); /*背景颜色*/
+    float: left;
+    line-height: 40px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.leftnav span {
+    width: 150px;
+    background-color: #B4C6E7;
+    color: white; /*字体颜色*/
+}
+
+/*内容*/
+.content {
+    width: 89%; /*宽度*/
+    height: 75%; /*高度*/
+    text-align: center; /*文本对齐方式*/
+    background-color: #ffffff; /*背景颜色*/
+    border: 1px solid lightgray;
+    padding:5px;
+    float: left;
+}
+
+.infolist{
+    font-size: 14px;
+    color:saddlebrown;
+}
+
+.tableheader{
+    font-size: 14px;
+    background-color: #DCE5F4;
+}
+
+/*底部*/
+.footer {
+    width:100%; /*宽度*/
+    height:2%; /*高度*/
+    text-align:center; /*文本对齐方式*/
+    background-color:#2F5496; /*背景颜色*/
+    color: white;
+    font-size: 12px;
+    position:fixed;
+    bottom:0px;
+}
+	   	   
