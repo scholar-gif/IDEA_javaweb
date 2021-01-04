@@ -1,13 +1,13 @@
 package bean;
 
 public class ScoreDTO {
+    private String courseId;
     private String courseName;
     private String studentId;
     private String studentName;
     private String courseXf;
     private String score;
     private String jige;
-    private String courseId;
 
     public String getCourseId() {
         return courseId;
