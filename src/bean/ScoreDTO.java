@@ -7,7 +7,6 @@ public class ScoreDTO {
     private String studentName;
     private String courseXf;
     private String score;
-    private String jige;
 
     public String getCourseId() {
         return courseId;
@@ -57,13 +56,6 @@ public class ScoreDTO {
         this.score = score;
     }
 
-    public String getJige() {
-        return jige;
-    }
-
-    public void setJige(String jige) {
-        this.jige = jige;
-    }
 
 
 
