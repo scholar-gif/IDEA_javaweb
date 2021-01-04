@@ -19,6 +19,7 @@ public class ScoreDAO {
             //编写参数化SQl语句
             String sql="select Course_Table.course_name,Student_Table.student_id,student_name,(case when Score_Table.score>=80 then course_xf when Score_Table.score>=60 then course_xf-1 else 0 end),Score_Table.score,(case when Score_Table.score>=80 then '优秀' when Score_Table.score>=60 then '及格' else '不及格' end) from Student_Table,Score_Table,Course_Table where Score_Table.student_id = Student_Table.student_id  and Score_Table.course_id=Course_Table.course_id";
             System.out.println(sql);
+
             //创建预编译语句
             pstmt=con.prepareStatement(sql);
 
