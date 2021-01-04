@@ -85,7 +85,6 @@
                 <th>学生姓名</th>
                 <th>课程学分</th>
                 <th>成绩</th>
-                <th>是否及格</th>
                 <th>更新</th>
                 <th>删除</th>
             </tr>
@@ -98,7 +97,6 @@
                     <td>${score.studentName}</td>
                     <td>${score.courseXf}</td>
                     <td>${score.score}</td>
-                    <td>${score.jige}</td>
                     <td><a href="getscoreinfo?courseName${score.courseName}"style="text-decoration: none;">更新</a></td>
                     <td><a href="delscore?courseName=${score.courseName}" style="text-decoration: none;">删除</a></td>
                 </tr>
