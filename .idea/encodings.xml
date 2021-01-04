@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/bean/DBManager.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/bean/ScoreDAO.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/bean/StudentDAO.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/bean/UserBean.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/servlet/GetStudentinfoServlet.java" charset="GBK" />
