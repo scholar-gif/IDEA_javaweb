@@ -68,9 +68,9 @@
         <div><label>查询条件:</label>
             <select name="select" style="height:27px">
                 <option>请选择</option>
-                <option value="用户名">用户名</option>
-                <option value="性别">性别</option>
-                <option value="邮箱">邮箱</option>
+                <option value="姓名">姓名</option>
+                <option value="学号">学号</option>
+                <option value="课程">课程</option>
             </select>
             <input type="text" name="selectvalue" size="20"/>
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
@@ -95,6 +95,7 @@
                     <td><input type="checkbox" name="cbxscore" value="${score.courseName}"></td>
                     <td>${score.courseName}</td>
                     <td>${score.studentId}</td>
+                    <td>${score.studentName}</td>
                     <td>${score.courseXf}</td>
                     <td>${score.score}</td>
                     <td>${score.jige}</td>

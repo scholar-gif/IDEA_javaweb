@@ -3,9 +3,19 @@ package bean;
 public class ScoreDTO {
     private String courseName;
     private String studentId;
+    private String studentName;
     private String courseXf;
     private String score;
     private String jige;
+    private String courseId;
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
+    }
 
     public String getCourseName() {
         return courseName;
@@ -21,6 +31,14 @@ public class ScoreDTO {
 
     public void setStudentId(String studentId) {
         this.studentId = studentId;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public String getCourseXf() {
@@ -46,4 +64,7 @@ public class ScoreDTO {
     public void setJige(String jige) {
         this.jige = jige;
     }
+
+
+
 }

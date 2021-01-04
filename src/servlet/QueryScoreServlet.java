@@ -1,6 +1,7 @@
 package servlet;
 
-import bean.UserBean;
+import bean.ScoreDAO;
+import bean.ScoreDTO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.LinkedList;
 
-public class QueryUserServlet extends HttpServlet {
+public class QueryScoreServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
@@ -22,13 +23,13 @@ public class QueryUserServlet extends HttpServlet {
         System.out.println(select_value);
 
         //创建模型对象
-        UserBean dao = new UserBean();
+        ScoreDAO dao = new ScoreDAO();
 
         //调用业务逻辑方法
-        LinkedList<UserBean> userlist = dao.queryAllUser(select,select_value);
+        LinkedList<ScoreDTO> scorelist = dao.queryscores(select,select_value);
 
-        request.setAttribute("userlist",userlist);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("userinfo.jsp");
+        request.setAttribute("scorelist",scorelist);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("scoreinfo.jsp");
         requestDispatcher.forward(request,response);
 
     }

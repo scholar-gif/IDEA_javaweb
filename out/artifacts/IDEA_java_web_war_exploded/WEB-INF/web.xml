@@ -146,7 +146,15 @@
     <!--课程信息管理模块-->
 
     <!--成绩信息管理模块-->
-
+    <!--查询成绩信息-->
+    <servlet>
+        <servlet-name>queryscore</servlet-name>
+        <servlet-class>servlet.QueryScoreServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>queryscore</servlet-name>
+        <url-pattern>/queryscore</url-pattern>
+    </servlet-mapping>
 
     <filter>
         <filter-name>characterfilter</filter-name>
