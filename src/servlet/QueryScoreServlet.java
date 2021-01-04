@@ -26,9 +26,9 @@ public class QueryScoreServlet extends HttpServlet {
         ScoreDAO dao = new ScoreDAO();
 
         //调用业务逻辑方法
-        LinkedList<ScoreDTO> scorelist = dao.queryscores(select,select_value);
+        LinkedList<ScoreDTO> scoreslist = dao.queryscores(select,select_value);
 
-        request.setAttribute("scorelist",scorelist);
+        request.setAttribute("scoreslist",scoreslist);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("scoreinfo.jsp");
         requestDispatcher.forward(request,response);
 
