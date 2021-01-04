@@ -51,7 +51,7 @@ public class StudentDAO {
         return studentlist;
     }
 
-    public StudentDTO queryStudent(String studentId) {
+    public StudentDTO queryStudent(String studentId){
     	Connection con=null;
         PreparedStatement pstmt=null;
         StudentDTO student =null;
@@ -101,12 +101,9 @@ public class StudentDAO {
         	 //创建连接对象
             con=DBManager.getConnection();
             //编写参数化SQl语句
-       //     String sql="update Student_Table set student_name = ?, student_sex = ?, sutdent_birthday = ?, student_dept = ?, student_major = ?, student_classid = ?"
-           // 		+ "where student_id = ?"; 
-            
             String sql="update Student_Table set student_name = ?, student_sex = ?, student_birthday = ?, student_dept = ?, student_major = ?, student_classid = ? "
            		 + " where student_id = ?";
-            
+
             System.out.println(sql);
             //创建预编译语句
             pstmt=con.prepareStatement(sql);
@@ -228,7 +225,7 @@ public class StudentDAO {
             con=DBManager.getConnection();
             //编写参数化SQl语句
             String sql=null;
-            if(select.equals("id")){
+            if(select.equals("学号")){
                 sql = "select * from Student_Table where student_id=?";
                 System.out.println(sql);
 
@@ -236,7 +233,7 @@ public class StudentDAO {
                 pstmt.setString(1,select_value);
                 rs = pstmt.executeQuery();
             }
-            else if(select.equals("name")){
+            else if(select.equals("姓名")){
                 sql = "select * from Student_Table where student_name=?";
                 System.out.println(sql);
 

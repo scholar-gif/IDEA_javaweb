@@ -56,7 +56,7 @@
 <%--左导航--%>
 <div class="leftnav">
     <a href="studentinfo">学生信息</a><br>
-    <a href="studentManage">学生管理</a><br>
+    <a href="studentmanage">学生管理</a><br>
     <a href="addstudent.jsp">添加学生</a>
 </div>
 
@@ -105,9 +105,7 @@
                     <td>${student.studentDept}</td>
                     <td>${student.studentMajor}</td>
                     <td>${student.studentClassId}</td>
-                    <td><a href="getstudentinfo?studentid=${student.studentId}" style="text-decoration: none;">更新</a>
-                    </td>
-
+                    <td><a href="getstudentinfo?studentid=${student.studentId}" style="text-decoration: none;">更新</a></td>
                     <td><a href="delstudent?studentid=${student.studentId}" style="text-decoration: none;">删除</a></td>
                 </tr>
             </c:forEach>

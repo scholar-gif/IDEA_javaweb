@@ -11,14 +11,6 @@ import java.io.IOException;
 
 
     public class RegisterServlet extends HttpServlet {
-        public RegisterServlet() {
-            super();
-        }
-
-        public void destroy() {
-            super.destroy();
-        }
-
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             doPost(request,response);
         }

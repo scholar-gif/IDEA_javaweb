@@ -12,7 +12,7 @@
     <div class="nav">
         <a href="main.jsp">系统首页</a>
         <a>个人中心</a>
-        <a>用户信息</a>
+        <a href="userinfo">用户信息</a>
         <a href="studentinfo">学生信息</a>
         <a>课程信息</a>
         <a>成绩信息</a>

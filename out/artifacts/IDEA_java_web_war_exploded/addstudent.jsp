@@ -44,7 +44,7 @@
 <%--左导航--%>
 <div class="leftnav">
     <a href="studentinfo">学生信息</a><br>
-    <a href="studentinfo.jsp">学生管理</a><br>
+    <a href="studentmanage">学生管理</a><br>
     <span><a href="addstudent.jsp">添加学生</a></span>
 </div>
 

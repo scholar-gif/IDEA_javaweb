@@ -29,7 +29,6 @@
 				alert(pop);
 		}
 	</script>
-
 </head>
 
 <body>
@@ -38,8 +37,8 @@
 
 <%--左导航--%>
 <div class="leftnav">
-    <span>学生信息</span><br>
-    <a href="studentinfo.jsp">学生管理</a><br>
+    <a href="studentinfo">学生信息</a><br>
+    <a href="studentmanage">学生管理</a><br>
     <a href="addstudent.jsp">添加学生</a>
 </div>
 
@@ -53,7 +52,6 @@
                 <td style="font-size: 12px;color: darkgray;">
                     <input type="text" id="studentId" name="studentId" class="myinput" readonly value="${student.studentId}"/>*学号不可更改
                 </td>
-
             </tr>
             <tr>
                 <td><label for="studentName">姓名:</label></td>

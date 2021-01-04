@@ -13,13 +13,6 @@ import java.util.LinkedList;
 
 public class StudentInfoServlet extends HttpServlet{
 
-    public StudentInfoServlet(){
-        super();
-    }
-    public void destroy(){
-        super.destroy();
-    }
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //request.setCharacterEncoding("utf-8");

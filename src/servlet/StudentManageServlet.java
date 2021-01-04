@@ -12,18 +12,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 public class StudentManageServlet extends HttpServlet {
-    public StudentManageServlet(){
-        super();
-    }
-    public void destroy(){
-        super.destroy();
-    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //request.setCharacterEncoding("utf-8");
-        // response.setContentType("text/html") ;
-        //response.setCharacterEncoding("utf-8");
         //创建模型对象
         StudentDAO dao = new StudentDAO();
         //调用业务逻辑方法
@@ -33,7 +24,6 @@ public class StudentManageServlet extends HttpServlet {
         RequestDispatcher requestDispatcher=request.getRequestDispatcher("studentManage.jsp");
         requestDispatcher.forward(request, response);
 
-        //response.sendRedirect("studentinfo.jsp");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

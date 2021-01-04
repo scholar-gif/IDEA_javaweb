@@ -12,19 +12,6 @@ import bean.StudentDAO;
 import bean.StudentDTO;
 
 public class GetStudentinfoServlet extends HttpServlet {
-
-
-	public GetStudentinfoServlet() {
-		super();
-	}
-
-
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
-
-	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		 //request.setCharacterEncoding("utf-8");

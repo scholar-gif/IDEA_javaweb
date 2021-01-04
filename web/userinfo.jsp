@@ -33,9 +33,8 @@
             if (pop != "")
                 alert(pop);
         }
-
         function selectAll() {
-            var checklist = document.getElementsByName("cbxStudent");
+            var checklist = document.getElementsByName("cbxUser");
             if (document.getElementById("cbxAll").checked)//document.getElementById(" ")获取指定id值的对象，.checked若被选中则返回true
                 for (var i = 0; i < checklist.length; i++)
                     checklist[i].checked = 1;
@@ -44,8 +43,8 @@
                     checklist[j].checked = 0;
         }
 
-
     </script>
+
 </head>
 
 <body>
@@ -55,26 +54,23 @@
 
 <%--左导航--%>
 <div class="leftnav">
-    <a href="studentinfo">学生信息</a><br>
-    <a href="studentmanage">学生管理</a><br>
-    <a href="addstudent.jsp">添加学生</a>
+    <a href="userinfo">用户信息</a><br>
+    <a href="studentManage">用户管理</a><br>
+    <a href="adduser.jsp">添加用户</a>
 </div>
 
 <%--主内容--%>
 <div class="content">
     <c:if test="${5<4}" var="hello" scope="session">
         hello
-
     </c:if>
-    <form action="querystudents">
+    <form action="queryuser">
         <div><label>查询条件:</label>
             <select name="select" style="height:27px">
                 <option>请选择</option>
-                <option value="学号">学号</option>
-                <option value="姓名">姓名</option>
+                <option value="用户名">用户名</option>
                 <option value="性别">性别</option>
-                <option value="学院">学院</option>
-                <option value="专业">专业</option>
+                <option value="邮箱">邮箱</option>
             </select>
             <input type="text" name="selectvalue" size="20"/>
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
@@ -84,29 +80,25 @@
         <table border="1" align="center" class="infolist">
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
-                <th>学号</th>
-                <th>姓名</th>
+                <th>用户名</th>
+                <th>密码</th>
                 <th>性别</th>
-                <th>出生日期</th>
-                <th>学院</th>
-                <th>专业</th>
-                <th>班级号</th>
+                <th>邮箱</th>
+                <th>基本信息</th>
                 <th>更新</th>
                 <th>删除</th>
             </tr>
 
-            <c:forEach items="${requestScope.studentlist}" var="student">
+            <c:forEach items="${requestScope.userlist}" var="user">
                 <tr align="center">
-                    <td><input type="checkbox" name="cbxStudent" value="${student.studentId}"></td>
-                    <td>${student.studentId}</td>
-                    <td>${student.studentName}</td>
-                    <td>${student.studentSex}</td>
-                    <td>${student.studentBirthday}</td>
-                    <td>${student.studentDept}</td>
-                    <td>${student.studentMajor}</td>
-                    <td>${student.studentClassId}</td>
-                    <td><a href="getstudentinfo?studentid=${student.studentId}" style="text-decoration: none;">更新</a></td>
-                    <td><a href="delstudent?studentid=${student.studentId}" style="text-decoration: none;">删除</a></td>
+                    <td><input type="checkbox" name="cbxUser" value="${user.userName}"></td>
+                    <td>${user.userName}</td>
+                    <td>${user.userPwd}</td>
+                    <td>${user.userSex}</td>
+                    <td>${user.userEmail}</td>
+                    <td>${user.userBasic}</td>
+                    <td><a href="getuserinfo?username=${user.userName}"style="text-decoration: none;">更新</a></td>
+                    <td><a href="deluser?username=${user.userName}" style="text-decoration: none;">删除</a></td>
                 </tr>
             </c:forEach>
         </table>
@@ -114,22 +106,6 @@
         <input type="submit" name="btnDelete" class="mybutton" value="删除"/>&nbsp&nbsp&nbsp
         <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addstudent.jsp'"/>
     </form>
-
-    <%--<%for(StudentDTO student :studentlist){ %>
-    <tr>
-        <td><%=student.getStudentId() %></td>
-        <td><%=student.getStudentName() %></td>
-        <td><%=student.getStudentSex() %></td>
-        <td><%=student.getStudentBirthday() %></td>
-        <td><%=student.getStudentDept() %></td>
-        <td><%=student.getStudentMajor() %></td>
-        <td><%=student.getStudentClassId() %></td>
-        <td><a href="">更新</a></td>
-        <td><a href="">删除</a></td>
-    </tr>
-    <%} %>--%>
-
-
 </div>
 
 <jsp:include page="footer.jsp"/>

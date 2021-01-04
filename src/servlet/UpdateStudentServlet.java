@@ -13,21 +13,8 @@ import bean.StudentDAO;
 import bean.StudentDTO;
 
 public class UpdateStudentServlet extends HttpServlet {
-
-
-	public UpdateStudentServlet() {
-		super();
-	}
-
 	
-	public void destroy() {
-		super.destroy(); // Just puts "destroy" string in log
-		// Put your code here
-	}
-
-	
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.flush();
@@ -35,11 +22,8 @@ public class UpdateStudentServlet extends HttpServlet {
 	}
 
 	
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//request.setCharacterEncoding("utf-8");
-		
 		//获取请求信息
 		String studentId=request.getParameter("studentId");
 		String studentName=request.getParameter("studentName");
@@ -77,7 +61,7 @@ public class UpdateStudentServlet extends HttpServlet {
 
 	
 	public void init() throws ServletException {
-		// Put your code here
+
 	}
 
 }

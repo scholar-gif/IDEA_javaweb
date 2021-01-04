@@ -12,18 +12,6 @@ import javax.servlet.http.HttpSession;
 import bean.UserBean;
 
 public class LogonServlet extends HttpServlet {
-
-
-    public LogonServlet() {
-        super();
-    }
-
-    
-    public void destroy() {
-        super.destroy(); // Just puts "destroy" string in log
-        // Put your code here
-    }
-
   
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
