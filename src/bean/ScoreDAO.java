@@ -34,7 +34,6 @@ public class ScoreDAO {
                 score.setScore(rs.getString(5));
                 score.setJige(rs.getString(6));
                 scorelist.add(score);
-                System.out.println();
             }
         }
 
