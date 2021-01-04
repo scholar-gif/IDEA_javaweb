@@ -146,6 +146,14 @@
     <!--课程信息管理模块-->
 
     <!--成绩信息管理模块-->
+    <servlet>
+        <servlet-name>scoreinfo</servlet-name>
+        <servlet-class>servlet.ScoreinfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>scoreinfo</servlet-name>
+        <url-pattern>/scoreinfo</url-pattern>
+    </servlet-mapping>
     <!--查询成绩信息-->
     <servlet>
         <servlet-name>queryscore</servlet-name>
