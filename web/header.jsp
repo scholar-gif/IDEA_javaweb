@@ -15,7 +15,7 @@
         <a href="userinfo">用户信息</a>
         <a href="studentinfo">学生信息</a>
         <a>课程信息</a>
-        <a href="scoreinfo.jsp">成绩信息</a>
+        <a href="scoreinfo">成绩信息</a>
     </div>
 </body>
    

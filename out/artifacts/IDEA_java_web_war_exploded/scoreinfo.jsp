@@ -90,7 +90,7 @@
                 <th>删除</th>
             </tr>
 
-            <c:forEach items="${requestScope.scorelist}" var="score">
+            <c:forEach items="${requestScope.scoreslist}" var="score">
                 <tr align="center">
                     <td><input type="checkbox" name="cbxscore" value="${score.courseName}"></td>
                     <td>${score.courseName}</td>
