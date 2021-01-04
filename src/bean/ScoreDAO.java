@@ -34,7 +34,6 @@ public class ScoreDAO {
                 score.setScore(rs.getString(5));
                 score.setJige(rs.getString(6));
                 scorelist.add(score);
-                System.out.println();
             }
         }
 
@@ -151,9 +150,9 @@ public class ScoreDAO {
             //创建预编译语句
             pstmt=con.prepareStatement(sql);
             //对SQL语句中的参数赋值
-            pstmt.setString(1,score.getStudentId());
+            pstmt.setString(1,score.getCourseId());
             pstmt.setString(2,score.getScore());
-            pstmt.setString(3,score.getCourseId());
+            pstmt.setString(3,score.getStudentId());
             //执行SQL语句
             int n=pstmt.executeUpdate();
 
