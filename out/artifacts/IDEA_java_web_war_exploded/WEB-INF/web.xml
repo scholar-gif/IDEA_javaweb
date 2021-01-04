@@ -5,7 +5,7 @@
          version="4.0">
 
     <display-name>IDEA_java web</display-name>
-    <!--登录-->
+    <!--**********登录**********-->
         <servlet>
             <servlet-name>logon</servlet-name>
             <servlet-class>servlet.LogonServlet</servlet-class>
@@ -15,7 +15,7 @@
             <url-pattern>/logon</url-pattern>
         </servlet-mapping>
 
-    <!--注册-->
+    <!--**********注册**********-->
         <servlet>
             <servlet-name>register</servlet-name>
             <servlet-class>servlet.RegisterServlet</servlet-class>
@@ -25,7 +25,7 @@
             <url-pattern>/register</url-pattern>
         </servlet-mapping>
 
-    <!--学生信息管理模块-->
+    <!--**********学生信息管理模块**********-->
         <servlet>
             <servlet-name>studentmanage</servlet-name>
             <servlet-class>servlet.StudentManageServlet</servlet-class>
@@ -89,7 +89,7 @@
                 <url-pattern>/querystudents</url-pattern>
             </servlet-mapping>
 
-    <!--用户信息管理模块-->
+    <!--**********用户信息管理模块**********-->
         <servlet>
             <servlet-name>userinfo</servlet-name>
             <servlet-class>servlet.UserinfoServlet</servlet-class>
@@ -134,36 +134,47 @@
                 <servlet-name>updateuser</servlet-name>
                 <url-pattern>/updateuser</url-pattern>
             </servlet-mapping>
-    <!--添加用户信息-->
-    <servlet>
-        <servlet-name>adduser</servlet-name>
-        <servlet-class>servlet.AddUserServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>adduser</servlet-name>
-        <url-pattern>/adduser</url-pattern>
-    </servlet-mapping>
-    <!--课程信息管理模块-->
+        <!--添加用户信息-->
+            <servlet>
+                <servlet-name>adduser</servlet-name>
+                <servlet-class>servlet.AddUserServlet</servlet-class>
+            </servlet>
+            <servlet-mapping>
+                <servlet-name>adduser</servlet-name>
+                <url-pattern>/adduser</url-pattern>
+            </servlet-mapping>
+    <!--**********课程信息管理模块**********-->
 
-    <!--成绩信息管理模块-->
-    <servlet>
-        <servlet-name>scoreinfo</servlet-name>
-        <servlet-class>servlet.ScoreinfoServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>scoreinfo</servlet-name>
-        <url-pattern>/scoreinfo</url-pattern>
-    </servlet-mapping>
-    <!--查询成绩信息-->
-    <servlet>
-        <servlet-name>queryscore</servlet-name>
-        <servlet-class>servlet.QueryScoreServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>queryscore</servlet-name>
-        <url-pattern>/queryscore</url-pattern>
-    </servlet-mapping>
+    <!--**********成绩信息管理模块**********-->
+        <servlet>
+            <servlet-name>scoreinfo</servlet-name>
+            <servlet-class>servlet.ScoreinfoServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>scoreinfo</servlet-name>
+            <url-pattern>/scoreinfo</url-pattern>
+        </servlet-mapping>
+        <!--查询成绩信息-->
+            <servlet>
+                <servlet-name>queryscore</servlet-name>
+                <servlet-class>servlet.QueryScoreServlet</servlet-class>
+            </servlet>
+            <servlet-mapping>
+                <servlet-name>queryscore</servlet-name>
+                <url-pattern>/queryscore</url-pattern>
+            </servlet-mapping>
+        <!--添加用户信息-->
+            <servlet>
+                <servlet-name>addscore</servlet-name>
+                <servlet-class>servlet.AddScoreServlet</servlet-class>
+            </servlet>
+            <servlet-mapping>
+                <servlet-name>addscore</servlet-name>
+                <url-pattern>/addscore</url-pattern>
+            </servlet-mapping>
 
+
+    <!--*****************分 界 线*********************-->
     <filter>
         <filter-name>characterfilter</filter-name>
         <filter-class>filter.CharacterFilter</filter-class>

@@ -14,7 +14,7 @@
 <head>
     <base href="<%=basePath%>">
 
-    <title>My JSP 'addstudent.jsp' starting page</title>
+    <title>My JSP 'addscore.jsp' starting page</title>
 
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
@@ -43,9 +43,9 @@
 
 <%--左导航--%>
 <div class="leftnav">
-    <a href="studentinfo">成绩信息</a><br>
-    <a href="studentmanage">成绩管理</a><br>
-    <span><a href="addstudent.jsp">成绩录入</a></span>
+    <a href="scoreinfo">学生信息</a><br>
+    <a href="scoremanage">学生管理</a><br>
+    <span><a href="addscore.jsp">添加学生</a></span>
 </div>
 
 <%--主内容--%>
@@ -54,26 +54,26 @@
     <form name="addscore" action="addscore" method="post">
         <table align="center">
             <tr>
-                <td><label for="scoreId">课程名称:</label></td>
-                <td><input type="text" id="scoreId" name="scoreId" class="myinput"/></td>
+                <td><label for="courseId">课程号:</label></td>
+                <td><input type="text" id="courseId" name="courseId" class="myinput"/></td>
             </tr>
+
             <tr>
-                <td><label for="studentId">学号:</label></td>
+                <td><label for="studentId">学生学号:</label></td>
                 <td><input type="text" id="studentId" name="studentId" class="myinput"/></td>
             </tr>
+
             <tr>
-                <td><label for="studentName">学生姓名:</label></td>
-                <td><input type="text" id="studentName" name="studentName" class="myinput"/></td>
-            </tr>
-            <tr>
-                <td><label>成绩:</label></td>
+                <td><label for="score">成绩:</label></td>
                 <td><input type="text" id="score" name="score" class="myinput"/></td>
             </tr>
+
             <tr>
                 <td><label></label></td>
                 <td>
                     <input type="submit" id="btnSubmit" name="btnSubmit" value="添加" class="mybutton"/>&nbsp&nbsp&nbsp
-                    <input type="button" id="btnCancel" name="btnCancel" value="取消" class="mybutton" onclick="window.location.href='scoreinfo'"/>
+                    <input type="button" id="btnCancel" name="btnCancel" value="取消" class="mybutton"
+                           onclick="window.location.href='scoreinfo'"/>
                 </td>
             </tr>
         </table>
