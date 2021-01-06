@@ -241,22 +241,15 @@ public class ScoreDAO {
             con = DBManager.getConnection();
             //编写参数化SQl语句
             String sql = null;
-            if (select.equals("姓名")) {
-                sql = "select Course_Table.course_name,Student_Table.student_id,student_name,(case when Score_Table.score>=80 then course_xf when Score_Table.score>=60 then course_xf-1 else 0 end),Score_Table.score from Student_Table,Score_Table,Course_Table where Score_Table.student_id = Student_Table.student_id  and Score_Table.course_id=Course_Table.course_id and  student_name = ?";
+            if (select.equals("xh")) {
+                sql = "select Course_Table.course_name,Student_Table.student_id,student_name,(case when Score_Table.score>=80 then course_xf when Score_Table.score>=60 then course_xf-1 else 0 end),Score_Table.score from Student_Table,Score_Table,Course_Table where Score_Table.student_id = Student_Table.student_id and Student_Table.student_id = 1004 and Score_Table.course_id = Course_Table.course_id ";
                 System.out.println(sql);
 
                 pstmt = con.prepareStatement(sql);
-                pstmt.setString(1, select_value);
-                rs = pstmt.executeQuery();
-            } else if (select.equals("学号")) {
-                sql = "select Course_Table.course_name,Student_Table.student_id,student_name,(case when Score_Table.score>=80 then course_xf when Score_Table.score>=60 then course_xf-1 else 0 end),Score_Table.score from Student_Table,Score_Table,Course_Table where Score_Table.student_id = Student_Table.student_id  and Score_Table.course_id=Course_Table.course_id and  Student_Table.student_id = ?";
-                System.out.println(sql);
 
-                pstmt = con.prepareStatement(sql);
-                pstmt.setString(1, select_value);
                 rs = pstmt.executeQuery();
-            } else if (select.equals("课程号")) {
-                sql = "select Course_Table.course_name,Student_Table.student_id,student_name,(case when Score_Table.score>=80 then course_xf when Score_Table.score>=60 then course_xf-1 else 0 end),Score_Table.score from Student_Table,Score_Table,Course_Table where Score_Table.student_id = Student_Table.student_id  and Score_Table.course_id=Course_Table.course_id and  Score_Table.course_id = ?";
+            } else if (select.equals("kc")) {
+                sql = "select Course_Table.course_name,Student_Table.student_id,student_name,(case when Score_Table.score>=80 then course_xf when Score_Table.score>=60 then course_xf-1 else 0 end),Score_Table.score from Student_Table,Score_Table,Course_Table where Score_Table.student_id = Student_Table.student_id and Score_Table.course_id = ? and Score_Table.course_id = Course_Table.course_id ";
                 System.out.println(sql);
 
                 pstmt = con.prepareStatement(sql);

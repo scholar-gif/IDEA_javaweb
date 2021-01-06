@@ -253,10 +253,10 @@ public class CourseDAO {
             while (rs.next()){
                 course=new CourseDTO();
                 course.setCourseId(rs.getString(1));
-                course.setCourseName(rs.getString(1));
-                course.setCourseType(rs.getString(1));
-                course.setCourseXf(rs.getString(1));
-                course.setStudentDept(rs.getString(1));
+                course.setCourseName(rs.getString(2));
+                course.setCourseType(rs.getString(3));
+                course.setCourseXf(rs.getString(4));
+                course.setStudentDept(rs.getString(5));
                 courselist.add(course);
             }
         }

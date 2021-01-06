@@ -68,8 +68,10 @@
         <div><label>查询条件:</label>
             <select name="select" style="height:27px">
                 <option>请选择</option>
+                <option value="课程号">课程号</option>
                 <option value="课程名">课程名</option>
-                <option value="学院">学院</option>
+                <option value="所属学院">所属学院</option>
+                <option value="课程类型">课程类型</option>
             </select>
             <input type="text" name="selectvalue" size="20"/>
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>

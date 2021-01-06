@@ -188,6 +188,15 @@
         <servlet-name>addcourse</servlet-name>
         <url-pattern>/addcourse</url-pattern>
     </servlet-mapping>
+    <!--查询课程信息-->
+    <servlet>
+        <servlet-name>querycourse</servlet-name>
+        <servlet-class>servlet.QueryCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>querycourse</servlet-name>
+        <url-pattern>/querycourse</url-pattern>
+    </servlet-mapping>
     <!--**********成绩信息管理模块**********-->
         <servlet>
             <servlet-name>scoreinfo</servlet-name>
@@ -206,7 +215,7 @@
                 <servlet-name>queryscore</servlet-name>
                 <url-pattern>/queryscore</url-pattern>
             </servlet-mapping>
-        <!--添加用户信息-->
+        <!--添加成绩信息-->
             <servlet>
                 <servlet-name>addscore</servlet-name>
                 <servlet-class>servlet.AddScoreServlet</servlet-class>
