@@ -215,9 +215,11 @@
             </tr>
 
             <tr>
-                <td valign="top" class="mylable"><label for="j" >基本信息:</label></td>
-                <td><textarea name="userBasic" id="j" rows="5" cols="21" class="areainput"></textarea></td>
-
+                <td><label>用户类型:</label></td>
+                <td>
+                    <input type="radio" name="userBasic" value="admin">管理员
+                    <input type="radio" name="userBasic" value="users">学生
+                </td>
             </tr>
             <tr><td height="20px"></td></tr>
             <tr>

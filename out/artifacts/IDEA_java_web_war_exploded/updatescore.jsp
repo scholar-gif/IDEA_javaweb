@@ -33,11 +33,20 @@
 
 <body>
 <%--头部--%>
+<%
+    if("admin".equals(session.getAttribute("users"))){
+%>
 <jsp:include page="header.jsp"/><%--动态包含--%>
-
+<%}
+else {
+%>
+<jsp:include page="userheader.jsp"/><%--动态包含--%>
+<%
+    }
+%>
 <%--左导航--%>
 <div class="leftnav">成绩信息</a><br>
-    <a href="studentmanage">成绩管理</a><br>
+    <a href="scoremanage">成绩管理</a><br>
     <a href="addstudent.jsp">添加成绩</a>
 </div>
 

@@ -11,10 +11,9 @@
     <%--导航--%>
     <div class="nav">
         <a href="main.jsp">系统首页</a>
-        <a href="userinfo">用户信息</a>
-        <a href="studentinfo">学生信息</a>
-        <a href="courseinfo">课程信息</a>
-        <a href="scoreinfo">成绩信息</a>
+        <a href="getuserinfo?username=${sessionScope.userid}">个人中心</a>
+        <a href="querycourse?selectvalue=${sessionScope.username.userType}&select=所属学院">课程信息</a>
+        <a href="queryscore?selectvalue=${sessionScope.username.userName}&select=xh">成绩信息</a>
     </div>
 </body>
    

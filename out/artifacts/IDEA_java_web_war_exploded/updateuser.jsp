@@ -121,13 +121,24 @@
 
 <body>
 <%--头部--%>
+<%
+    if("admin".equals(session.getAttribute("users"))){
+%>
 <jsp:include page="header.jsp"/><%--动态包含--%>
-
+<%}
+else {
+%>
+<jsp:include page="userheader.jsp"/><%--动态包含--%>
+<%
+    }
+%>
 <%--左导航--%>
 <div class="leftnav">
     <a href="userinfo">用户信息</a><br>
-    <a href="studentManage">用户管理</a><br>
-    <a href="addstudent.jsp">添加用户</a>
+    <%if("admin".equals(session.getAttribute("users"))){%>
+    <a href="usermanage">用户管理</a><br>
+    <a href="adduser.jsp">添加用户</a>
+    <%}%>
 </div>
 
 <%--主内容--%>
@@ -167,12 +178,6 @@
                         <span id="emailerr" class="err"></span>
                     </td>
                 </tr>
-
-                <tr>
-                    <td><label for="userBasic">基本信息:</label></td>
-                    <td><textarea name="userBasic" id="userBasic" rows="5" cols="21" class="areainput" value="${user.userBasic}" ></textarea></td>
-
-                </tr>
                 <tr>
                     <td><label></label></td>
                     <td>
@@ -182,12 +187,6 @@
                 </tr>
             </table>
         </form>
-    ${user.userSex=="男"}
-    ${"男".equals(user.userSex)}
-    ${user.userSex}
-
-    ${user.userName}
-    ${user.userName=="护甲"}
 </div>
 
 <%--底部--%>

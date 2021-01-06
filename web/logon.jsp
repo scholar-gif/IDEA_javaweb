@@ -32,7 +32,7 @@
             document.getElementById("usertip").style.display = "none";//提示关闭
             document.frmLogon.userName.style.borderColor = "azure";//边框颜色
             var username = document.frmLogon.userName.value;//文本框内容提取
-            var reg = /^[a-zA-Z_\u2e00-\u9fa5][\w_\u2e00-\u9fa5]{1,9}$/;//用户名格式要求
+            var reg = /^[\w_\u2e00-\u9fa5]{1,9}$/;//用户名格式要求
 
             if (!username) {
                 document.getElementById("usererr").innerHTML = "用户名不能为空*";
@@ -95,7 +95,8 @@
 
 <fieldset style="width:40%;height:60%;margin: 10% 50%;background:rgba(255,255,255,0.2);">
 
-    <legend style="color:darkslateblue;font-size:30px"><b style="text-shadow: 1px 1px 1px gray;">学生信息管理系统</b><b><sup style="font-size:10px">软件1181 胡佳 10212818126</sup></b></legend>
+    <legend style="color:darkslateblue;font-size:30px"><b style="text-shadow: 1px 1px 1px gray;">学生信息管理系统</b><b><sup
+            style="font-size:10px">软件1181 胡佳 10212818126</sup></b></legend>
     <h1>用户登录</h1>
     <form action="logon" name="frmLogon" method="post" onsubmit="return checkFrom();">
         <table align="center" cellspacing="10" width="90%">

@@ -33,8 +33,17 @@
 
 <body>
 <%--头部--%>
+<%
+    if("admin".equals(session.getAttribute("users"))){
+%>
 <jsp:include page="header.jsp"/><%--动态包含--%>
-
+<%}
+else {
+%>
+<jsp:include page="userheader.jsp"/><%--动态包含--%>
+<%
+    }
+%>
 <%--左导航--%>
 <div class="leftnav">
     <a href="studentinfo">学生信息</a><br>

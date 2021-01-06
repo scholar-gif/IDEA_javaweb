@@ -49,14 +49,24 @@
 
 <body>
 <%--头部--%>
-<jsp:include page="header.jsp"/>
-<%--动态包含--%>
-
+<%
+    if("admin".equals(session.getAttribute("users"))){
+%>
+<jsp:include page="header.jsp"/><%--动态包含--%>
+<%}
+else {
+%>
+<jsp:include page="userheader.jsp"/><%--动态包含--%>
+<%
+    }
+%>
 <%--左导航--%>
 <div class="leftnav">
     <a href="courseinfo">课程信息</a><br>
+    <%if("admin".equals(session.getAttribute("users"))){%>
     <a href="studentManage">课程管理</a><br>
     <a href="addcourse.jsp">添加课程</a>
+    <%}%>
 </div>
 
 <%--主内容--%>

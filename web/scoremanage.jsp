@@ -3,7 +3,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    //LinkedList<StudentDTO> studentlist=(LinkedList<StudentDTO>)request.getAttribute("studentlist");
+
 
     //防止未登陆就进入主页
     if (session.getAttribute("userid") == null)
@@ -34,7 +34,7 @@
                 alert(pop);
         }
         function selectAll() {
-            var checklist = document.getElementsByName("cbxUser");
+            var checklist = document.getElementsByName("cbxscore");
             if (document.getElementById("cbxAll").checked)//document.getElementById(" ")获取指定id值的对象，.checked若被选中则返回true
                 for (var i = 0; i < checklist.length; i++)
                     checklist[i].checked = 1;
@@ -61,11 +61,12 @@ else {
     }
 %>
 <%--左导航--%>
-
 <div class="leftnav">
-    <a href="userinfo">用户信息</a><br>
-    <a href="usermanage">用户管理</a><br>
-    <a href="adduser.jsp">添加用户</a>
+    <a href="scoreinfo">成绩信息</a><br>
+    <%if("admin".equals(session.getAttribute("users"))){%>
+    <a href="scoremanage">成绩管理</a><br>
+    <a href="addscore.jsp">添加成绩</a>
+    <%}%>
 </div>
 
 <%--主内容--%>
@@ -73,27 +74,46 @@ else {
     <c:if test="${5<4}" var="hello" scope="session">
         hello
     </c:if>
-    <form action="delstudent">
+    <form action="queryscore">
+        <div><label>查询条件:</label>
+            <select name="select" style="height:27px">
+                <option>请选择</option>
+                <option value="xh">学号</option>
+                <option value="kc">课程号</option>
+            </select>
+            <input type="text" name="selectvalue" size="20"/>
+            <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
+        </div>
+    </form>
+    <form action="delscore">
         <table border="1" align="center" class="infolist">
             <tr class="tableheader">
-                <th>用户名</th>
-                <th>密码</th>
-                <th>性别</th>
-                <th>邮箱</th>
-                <th>基本信息</th>
+                <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
+                <th>课程名称</th>
+                <th>学号</th>
+                <th>学生姓名</th>
+                <th>课程学分</th>
+                <th>成绩</th>
+                <th>更新</th>
+                <th>删除</th>
             </tr>
 
-            <c:forEach items="${requestScope.userlist}" var="user">
+            <c:forEach items="${requestScope.scoreslist}" var="score">
                 <tr align="center">
-                    <td>${user.userName}</td>
-                    <td>${user.userPwd}</td>
-                    <td>${user.userSex}</td>
-                    <td>${user.userEmail}</td>
-                    <td>${user.userBasic}</td>
+                    <td><input type="checkbox" name="cbxscore" value="${score.courseName}"></td>
+                    <td>${score.courseName}</td>
+                    <td>${score.studentId}</td>
+                    <td>${score.studentName}</td>
+                    <td>${score.courseXf}</td>
+                    <td>${score.score}</td>
+                    <td><a href="getscoreinfo?studentId=${score.studentId}&courseId=${score.courseId}" style="text-decoration: none;">更新</a></td>
+                    <td><a href="delscore?studentId=${score.studentId}&courseId=${score.courseId}" style="text-decoration: none;">删除</a></td>
                 </tr>
             </c:forEach>
         </table>
         <br>
+        <input type="submit" name="btnDelete" class="mybutton" value="删除"/>&nbsp&nbsp&nbsp
+        <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addscore.jsp'"/>
     </form>
 </div>
 

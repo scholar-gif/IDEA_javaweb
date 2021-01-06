@@ -38,7 +38,17 @@
 <body>
 
 	<%--头部--%>
+    <%
+        if("admin".equals(session.getAttribute("users"))){
+    %>
     <%@ include file="header.jsp" %><%--静态包含--%>
+    <%}
+        else {
+    %>
+    <%@ include file="userheader.jsp" %>
+    <%
+        }
+    %>
    <%--左导航--%>
     <div class="leftnav">
         <span>系统首页</span><br>

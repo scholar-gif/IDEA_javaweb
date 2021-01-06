@@ -98,6 +98,15 @@
             <servlet-name>userinfo</servlet-name>
             <url-pattern>/userinfo</url-pattern>
         </servlet-mapping>
+    <!--用户信息管理-->
+        <servlet>
+            <servlet-name>usermanage</servlet-name>
+            <servlet-class>servlet.UserManageServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>usermanage</servlet-name>
+            <url-pattern>/usermanage</url-pattern>
+        </servlet-mapping>
         <!--查询用户信息-->
             <servlet>
                 <servlet-name>queryuser</servlet-name>
@@ -206,6 +215,15 @@
             <servlet-name>scoreinfo</servlet-name>
             <url-pattern>/scoreinfo</url-pattern>
         </servlet-mapping>
+    <!--成绩信息管理-->
+    <servlet>
+        <servlet-name>scoremanage</servlet-name>
+        <servlet-class>servlet.ScoreManageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>scoremanage</servlet-name>
+        <url-pattern>/scoremanage</url-pattern>
+    </servlet-mapping>
         <!--查询成绩信息-->
             <servlet>
                 <servlet-name>queryscore</servlet-name>

@@ -10,8 +10,10 @@ public class UserBean {
     private String userSex;
     private String userEmail;
     private String userBasic;
+    private String userType;
 
-
+    public String getUserType() {return userType; }
+    public void setUserType(String userType) { this.userType = userType; }
     public String getUserName() {
         return userName;
     }
@@ -82,6 +84,7 @@ public class UserBean {
             if (rs.next()){
                 for (int i=0;i<rs.getMetaData().getColumnCount();i++)
                     System.out.print(rs.getString(i+1) + " ");
+                rs.getString(5);
                 b=true;
             }
         }
@@ -100,6 +103,64 @@ public class UserBean {
             try {con.close();}  catch (SQLException e) {}
         }
         return b;
+    }
+    public UserBean isUser(String userName,String userPwd){
+        /*
+        if(userName != null && userName.equals("zhangsan") && userPwd != null && userPwd.equals("123456"))
+            b= true;
+        else
+            b= false;
+        */
+        final String driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        final String connStr="jdbc:sqlserver://localhost:1433;DatabaseName=StudentInfo";
+        final String username="sa";
+        final String pwd="123456";
+
+        Connection con=null;
+        Statement stmt=null;
+        ResultSet rs=null;
+        UserBean user = null;
+
+        try{
+            //加载数据库驱动程序
+            Class.forName(driverClass);
+            System.out.println("数据库驱动加载成功！");
+            con= DriverManager.getConnection(connStr,username,pwd);
+            System.out.println("数据库连接成功！");
+
+            //编写SQl语句
+            String sql="select * from User_Table where user_name= '"+userName+"' and user_password='"+userPwd+"'";
+            System.out.println(sql);
+            //创建语句对象
+            stmt=con.createStatement();
+            //执行SQL语句
+            rs=stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                user = new UserBean();
+                user.setUserName(rs.getString(1));
+                user.setUserPwd(rs.getString(2));
+                user.setUserSex(rs.getString(3));
+                user.setUserEmail(rs.getString(4));
+                user.setUserBasic(rs.getString(5));
+                user.setUserType(rs.getString(6));
+            }
+        }
+        catch(ClassNotFoundException e){
+            //T0D0 Auto-generated catch block
+            e.printStackTrace();
+        }
+        catch (SQLException e){
+            //T0D0 Auto-generated catch block
+            e.printStackTrace();
+        }
+        finally{
+            //关闭
+            try {rs.close();}   catch (SQLException e) {}
+            try {stmt.close();} catch (SQLException e1) {}
+            try {con.close();}  catch (SQLException e) {}
+        }
+        return user;
     }
 
     //注册验证

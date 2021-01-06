@@ -26,12 +26,17 @@ public class LogonServlet extends HttpServlet {
         //获取请求信息
         String userName = request.getParameter("userName");
         String userPwd = request.getParameter("userPwd");
+        UserBean users = null;
+
         //创建模型对象
         UserBean user = new UserBean();
         //调用业务逻辑方法
         if (user.isValidUser(userName, userPwd)) {
             HttpSession s = request.getSession();
             s.setAttribute("userid",userName);
+            users = user.isUser(userName, userPwd);
+            s.setAttribute("users",users.getUserBasic());
+            s.setAttribute("username",users);
             response.sendRedirect("main.jsp");//验证成功
         }
         else

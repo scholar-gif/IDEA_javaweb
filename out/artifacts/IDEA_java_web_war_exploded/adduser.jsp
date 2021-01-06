@@ -121,12 +121,21 @@
 
 <body>
 <%--头部--%>
+<%
+    if("admin".equals(session.getAttribute("users"))){
+%>
 <jsp:include page="header.jsp"/><%--动态包含--%>
-
+<%}
+else {
+%>
+<jsp:include page="userheader.jsp"/><%--动态包含--%>
+<%
+    }
+%>
 <%--左导航--%>
 <div class="leftnav">
     <a href="userinfo">用户信息</a><br>
-    <a href="studentManage">用户管理</a><br>
+    <a href="usermanage">用户管理</a><br>
     <a href="addstudent.jsp">添加用户</a>
 </div>
 
@@ -169,8 +178,11 @@
                 </tr>
 
                 <tr>
-                    <td><label for="userBasic">基本信息:</label></td>
-                    <td><textarea name="userBasic" id="userBasic" rows="5" cols="21" class="areainput" ></textarea></td>
+                    <td><label>用户类型:</label></td>
+                    <td>
+                    <input type="radio" name="userBasic" value="admin">管理员
+                    <input type="radio" name="userBasic" value="users">学生
+                    </td>
 
                 </tr>
                 <tr>

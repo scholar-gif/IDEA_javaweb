@@ -41,14 +41,23 @@
 
 <body>
 <%--头部--%>
-<jsp:include page="header.jsp"/>
-<%--动态包含--%>
-
+<%
+    if("admin".equals(session.getAttribute("users"))){
+%>
+<jsp:include page="header.jsp"/><%--动态包含--%>
+<%}
+else {
+%>
+<jsp:include page="userheader.jsp"/><%--动态包含--%>
+<%
+    }
+%>
 <%--左导航--%>
 <div class="leftnav">
     <a href="studentinfo">学生信息</a><br>
     <a href="studentmanage">学生管理</a><br>
     <a href="addstudent.jsp">添加学生</a>
+
 </div>
 
 <%--主内容--%>
@@ -57,20 +66,7 @@
         hello
 
     </c:if>
-    <form action="querystudents">
-        <div><label>查询条件:</label>
-            <select name="select" style="height:27px">
-                <option>请选择</option>
-                <option value="学号">学号</option>
-                <option value="姓名">姓名</option>
-                <option value="性别">性别</option>
-                <option value="学院">学院</option>
-                <option value="专业">专业</option>
-            </select>
-            <input type="text" name="selectvalue" size="20"/>
-            <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
-        </div>
-    </form>
+
     <form action="delstudent">
         <table border="1" align="center" class="infolist">
             <tr class="tableheader">
@@ -96,8 +92,6 @@
             </c:forEach>
         </table>
         <br>
-        <input type="submit" name="btnDelete" class="mybutton" value="删除"/>&nbsp&nbsp&nbsp
-        <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addstudent.jsp'"/>
     </form>
 
     <%--<%for(StudentDTO student :studentlist){ %>
