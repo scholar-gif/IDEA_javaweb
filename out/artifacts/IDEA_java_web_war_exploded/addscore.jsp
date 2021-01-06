@@ -43,23 +43,23 @@
 
 <%--左导航--%>
 <div class="leftnav">
-    <a href="scoreinfo">学生信息</a><br>
-    <a href="scoremanage">学生管理</a><br>
-    <span><a href="addscore.jsp">添加学生</a></span>
+    <a href="scoreinfo">成绩信息</a><br>
+    <a href="scoremanage">成绩管理</a><br>
+    <span><a href="addscore.jsp">成绩录入</a></span>
 </div>
 
 <%--主内容--%>
 <div class="content">
-    <h1 id="title">添加学生信息</h1><br>
+    <h1 id="title">添加成绩信息</h1><br>
     <form name="addscore" action="addscore" method="post">
         <table align="center">
             <tr>
                 <td><label for="courseId">课程号:</label></td>
-                <td><input type="text" id="courseId" name="courseId" class="myinput"/></td>
+                <td><input type="text" id="courseId" name="courseId" class="myinput" /></td>
             </tr>
 
             <tr>
-                <td><label for="studentId">学生学号:</label></td>
+                <td><label for="studentId">学号:</label></td>
                 <td><input type="text" id="studentId" name="studentId" class="myinput"/></td>
             </tr>
 

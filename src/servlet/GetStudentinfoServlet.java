@@ -34,6 +34,7 @@ public class GetStudentinfoServlet extends HttpServlet {
 	        request.setAttribute("student",student);
 	        RequestDispatcher requestDispatcher=request.getRequestDispatcher("updatestudent.jsp");
 	        requestDispatcher.forward(request,response);
+
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

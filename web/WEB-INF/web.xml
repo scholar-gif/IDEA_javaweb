@@ -144,7 +144,50 @@
                 <url-pattern>/adduser</url-pattern>
             </servlet-mapping>
     <!--**********课程信息管理模块**********-->
-
+    <servlet>
+        <servlet-name>courseinfo</servlet-name>
+        <servlet-class>servlet.CourseinfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>courseinfo</servlet-name>
+        <url-pattern>/courseinfo</url-pattern>
+    </servlet-mapping>
+    <!--获取课程信息-->
+    <servlet>
+        <servlet-name>getcourseinfo</servlet-name>
+        <servlet-class>servlet.GetCourseinfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getcourseinfo</servlet-name>
+        <url-pattern>/getcourseinfo</url-pattern>
+    </servlet-mapping>
+    <!--更新课程信息-->
+    <servlet>
+        <servlet-name>updatecourse</servlet-name>
+        <servlet-class>servlet.UpdateCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updatecourse</servlet-name>
+        <url-pattern>/updatecourse</url-pattern>
+    </servlet-mapping>
+    <!--删除课程信息-->
+    <servlet>
+        <servlet-name>delcourse</servlet-name>
+        <servlet-class>servlet.DelCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delcourse</servlet-name>
+        <url-pattern>/delcourse</url-pattern>
+    </servlet-mapping>
+    <!--添加课程信息-->
+    <servlet>
+        <servlet-name>addcourse</servlet-name>
+        <servlet-class>servlet.AddCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addcourse</servlet-name>
+        <url-pattern>/addcourse</url-pattern>
+    </servlet-mapping>
     <!--**********成绩信息管理模块**********-->
         <servlet>
             <servlet-name>scoreinfo</servlet-name>
@@ -172,7 +215,33 @@
                 <servlet-name>addscore</servlet-name>
                 <url-pattern>/addscore</url-pattern>
             </servlet-mapping>
-
+        <!--删除成绩信息-->
+            <servlet>
+                <servlet-name>delscore</servlet-name>
+                <servlet-class>servlet.DelScoreServlet</servlet-class>
+            </servlet>
+            <servlet-mapping>
+                <servlet-name>delscore</servlet-name>
+                <url-pattern>/delscore</url-pattern>
+            </servlet-mapping>
+        <!--获取更新成绩信息-->
+            <servlet>
+                <servlet-name>getscoreinfo</servlet-name>
+                <servlet-class>servlet.GetScoreinfoServlet</servlet-class>
+            </servlet>
+            <servlet-mapping>
+                <servlet-name>getscoreinfo</servlet-name>
+                <url-pattern>/getscoreinfo</url-pattern>
+            </servlet-mapping>
+    <!--更新成绩信息-->
+    <servlet>
+        <servlet-name>updatescore</servlet-name>
+        <servlet-class>servlet.UpdateScoreServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updatescore</servlet-name>
+        <url-pattern>/updatescore</url-pattern>
+    </servlet-mapping>
 
     <!--*****************分 界 线*********************-->
     <filter>

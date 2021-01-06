@@ -54,9 +54,9 @@
 
 <%--左导航--%>
 <div class="leftnav">
-    <a href="courseinfo">用户信息</a><br>
-    <a href="studentManage">用户管理</a><br>
-    <a href="addcourse.jsp">添加用户</a>
+    <a href="courseinfo">课程信息</a><br>
+    <a href="studentManage">课程管理</a><br>
+    <a href="addcourse.jsp">添加课程</a>
 </div>
 
 <%--主内容--%>

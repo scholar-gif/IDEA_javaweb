@@ -3,7 +3,7 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    //LinkedList<StudentDTO> studentlist=(LinkedList<StudentDTO>)request.getAttribute("studentlist");
+
 
     //防止未登陆就进入主页
     if (session.getAttribute("userid") == null)
@@ -70,13 +70,13 @@
                 <option>请选择</option>
                 <option value="姓名">姓名</option>
                 <option value="学号">学号</option>
-                <option value="课程">课程</option>
+                <option value="课程号">课程号</option>
             </select>
             <input type="text" name="selectvalue" size="20"/>
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
         </div>
     </form>
-    <form action="delstudent">
+    <form action="delscore">
         <table border="1" align="center" class="infolist">
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
@@ -97,8 +97,8 @@
                     <td>${score.studentName}</td>
                     <td>${score.courseXf}</td>
                     <td>${score.score}</td>
-                    <td><a href="getscoreinfo?courseName${score.courseName}"style="text-decoration: none;">更新</a></td>
-                    <td><a href="delscore?courseName=${score.courseName}" style="text-decoration: none;">删除</a></td>
+                    <td><a href="getscoreinfo?studentId=${score.studentId}&courseId=${score.courseId}" style="text-decoration: none;">更新</a></td>
+                    <td><a href="delscore?studentId=${score.studentId}&courseId=${score.courseId}" style="text-decoration: none;">删除</a></td>
                 </tr>
             </c:forEach>
         </table>

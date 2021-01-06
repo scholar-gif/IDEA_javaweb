@@ -50,10 +50,9 @@ public class CourseDAO {
         return courselist;
     }
 
-    public LinkedList<CourseDTO> queryCourseId(String courseId){
+    public CourseDTO queryCourseId(String courseId){
         Connection con=null;
         PreparedStatement pstmt=null;
-        LinkedList<CourseDTO> courselist=new LinkedList<CourseDTO>();
         CourseDTO course =null;
         ResultSet rs=null;
         try{
@@ -69,12 +68,11 @@ public class CourseDAO {
             //执行SQL语句
             while (rs.next()){
                 course=new CourseDTO();
-                course.setCourseName(rs.getString(1));
-                course.setStudentId(rs.getString(2));
-                course.setStudentName(rs.getString(3));
+                course.setCourseId(rs.getString(1));
+                course.setCourseName(rs.getString(2));
+                course.setCourseType(rs.getString(3));
                 course.setCourseXf(rs.getString(4));
-                course.setScore(rs.getString(5));
-                courselist.add(course);
+                course.setStudentDept(rs.getString(5));
             }
         }
 
@@ -87,10 +85,10 @@ public class CourseDAO {
             try {pstmt.close();} catch (SQLException e) {}
             try {con.close();}  catch (SQLException e) {}
         }
-        return scorelist;
+        return course;
     }
 
-    public boolean updateScoreById(CourseDTO score) {
+    public boolean updateCourseById(CourseDTO course) {
         boolean b=false;
 
         //定义数据库驱动程序请求
@@ -100,16 +98,18 @@ public class CourseDAO {
             //创建连接对象
             con=DBManager.getConnection();
             //编写参数化SQl语句
-            String sql="update Score_Table set coure_id = ?, score = ?"
-                    + " where student_id = ?";
+            String sql="update Course_Table set course_id =?, course_name =?, course_type =?, course_xf =?,course_Dept =? where course_id =?";
 
             System.out.println(sql);
             //创建预编译语句
             pstmt=con.prepareStatement(sql);
             //对SQL语句中的参数赋值
-            pstmt.setString(1,score.getCourseId());
-            pstmt.setString(2,score.getScore());
-            pstmt.setString(3,score.getStudentId());
+            pstmt.setString(1,course.getCourseId());
+            pstmt.setString(2,course.getCourseName());
+            pstmt.setString(3,course.getCourseType());
+            pstmt.setString(4,course.getCourseXf());
+            pstmt.setString(5,course.getStudentDept());
+            pstmt.setString(6,course.getCourseId());
 
             //执行SQL语句
             int n=pstmt.executeUpdate();
@@ -131,7 +131,7 @@ public class CourseDAO {
         return b;
     }
 
-    public boolean addScoreById(CourseDTO score) {
+    public boolean addCourseById(CourseDTO course) {
         boolean b=false;
 
         //定义数据库驱动程序请求
@@ -142,14 +142,16 @@ public class CourseDAO {
             //创建连接对象
             con=DBManager.getConnection();
             //编写参数化SQl语句
-            String sql="insert into Score_Table values(?,?,?)";
+            String sql="insert into Course_Table values(?,?,?,?,?)";
             System.out.println(sql);
             //创建预编译语句
             pstmt=con.prepareStatement(sql);
             //对SQL语句中的参数赋值
-            pstmt.setString(1,score.getCourseId());
-            pstmt.setString(2,score.getScore());
-            pstmt.setString(3,score.getStudentId());
+            pstmt.setString(1,course.getCourseId());
+            pstmt.setString(2,course.getCourseName());
+            pstmt.setString(3,course.getCourseType());
+            pstmt.setString(4,course.getCourseXf());
+            pstmt.setString(5,course.getStudentDept());
             //执行SQL语句
             int n=pstmt.executeUpdate();
 
@@ -169,7 +171,7 @@ public class CourseDAO {
         return b;
     }
 
-    public boolean delScoreId(CourseDTO score) {
+    public boolean delCourseId(String course) {
         boolean b=false;
 
         //定义数据库驱动程序请求
@@ -180,13 +182,12 @@ public class CourseDAO {
             //创建连接对象
             con=DBManager.getConnection();
             //编写参数化SQl语句
-            String sql= "delete from Score_Table where course_id = ?,student_id = ?";
+            String sql= "delete from Course_Table where course_id = ?";
             System.out.println(sql);
             //创建预编译语句
             pstmt=con.prepareStatement(sql);
             //对SQL语句中的参数赋值
-            pstmt.setString(1,score.getCourseId());
-            pstmt.setString(2,score.getStudentId());
+            pstmt.setString(1,course);
             //执行SQL语句
             int n=pstmt.executeUpdate();
 
@@ -209,36 +210,40 @@ public class CourseDAO {
     public LinkedList<CourseDTO> queryscores(String select,String select_value){
         Connection con=null;
         PreparedStatement pstmt=null;
-        LinkedList<CourseDTO> scoreslist=new LinkedList<CourseDTO>();
-        CourseDTO score =null;
+        LinkedList<CourseDTO> courselist=new LinkedList<CourseDTO>();
+        CourseDTO course =null;
         ResultSet rs=null;
         try{
             //创建连接对象
             con=DBManager.getConnection();
             //编写参数化SQl语句
             String sql=null;
-            if(select.equals("姓名")){
-                sql = "select Course_Table.course_name,Student_Table.student_id,student_name,(case when Score_Table.score>=80 then course_xf when Score_Table.score>=60 then course_xf-1 else 0 end),Score_Table.score,(case when Score_Table.score>=80 then '优秀' when Score_Table.score>=60 then '及格' else '不及格' end)" +
-                        "from Student_Table,Score_Table,Course_Table" +
-                        "where Score_Table.student_id = Student_Table.student_id  and Score_Table.course_id=Course_Table.course_id and student_name = ?";
+            if(select.equals("课程号")){
+                sql = "select * from Course_Table where course_id = ?";
                 System.out.println(sql);
 
                 pstmt = con.prepareStatement(sql);
                 pstmt.setString(1,select_value);
                 rs = pstmt.executeQuery();
             }
-            else if(select.equals("学号")){
-                sql = "select Course_Table.course_name,Student_Table.student_id,student_name,(case when Score_Table.score>=80 then course_xf when Score_Table.score>=60 then course_xf-1 else 0 end),Score_Table.score,(case when Score_Table.score>=80 then '优秀' when Score_Table.score>=60 then '及格' else '不及格' end) from Student_Table,Score_Table,Course_Table where Score_Table.student_id = Student_Table.student_id and Student_Table.student_id = ? and Score_Table.course_id=Course_Table.course_id";
+            else if(select.equals("课程名")){
+                sql = "select * from Course_Table where course_name = ?";
                 System.out.println(sql);
 
                 pstmt = con.prepareStatement(sql);
                 pstmt.setString(1,select_value);
                 rs = pstmt.executeQuery();
             }
-            else if(select.equals("课程")){
-                sql = "select Course_Table.course_name,Student_Table.student_id,student_name,(case when Score_Table.score>=80 then course_xf when Score_Table.score>=60 then course_xf-1 else 0 end),Score_Table.score,(case when Score_Table.score>=80 then '优秀' when Score_Table.score>=60 then '及格' else '不及格' end)" +
-                        "from Student_Table,Score_Table,Course_Table" +
-                        "where Score_Table.student_id = Student_Table.student_id and Score_Table.course_id = ? and Score_Table.course_id=Course_Table.course_id";
+            else if(select.equals("所属学院")){
+                sql = "select * from Course_Table where course_Dept = ?";
+                System.out.println(sql);
+
+                pstmt = con.prepareStatement(sql);
+                pstmt.setString(1,select_value);
+                rs = pstmt.executeQuery();
+            }
+            else if(select.equals("课程类型")){
+                sql = "select * from Course_Table where course_type = ?";
                 System.out.println(sql);
 
                 pstmt = con.prepareStatement(sql);
@@ -246,13 +251,13 @@ public class CourseDAO {
                 rs = pstmt.executeQuery();
             }
             while (rs.next()){
-                score=new CourseDTO();
-                score.setCourseName(rs.getString(1));
-                score.setStudentId(rs.getString(2));
-                score.setStudentName(rs.getString(3));
-                score.setCourseXf(rs.getString(4));
-                score.setScore(rs.getString(5));
-                scoreslist.add(score);
+                course=new CourseDTO();
+                course.setCourseId(rs.getString(1));
+                course.setCourseName(rs.getString(1));
+                course.setCourseType(rs.getString(1));
+                course.setCourseXf(rs.getString(1));
+                course.setStudentDept(rs.getString(1));
+                courselist.add(course);
             }
         }
 
@@ -266,6 +271,6 @@ public class CourseDAO {
             try {pstmt.close();} catch (SQLException e) {}
             try {con.close();}  catch (SQLException e) {}
         }
-        return scoreslist;
+        return courselist;
     }
 }

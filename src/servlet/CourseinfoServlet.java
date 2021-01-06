@@ -1,5 +1,7 @@
 package servlet;
 
+import bean.CourseDAO;
+import bean.CourseDTO;
 import bean.ScoreDAO;
 import bean.ScoreDTO;
 
@@ -11,18 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.LinkedList;
 
-public class ScoreinfoServlet extends HttpServlet {
+public class CourseinfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ScoreDAO dao = new ScoreDAO();
+        CourseDAO dao = new CourseDAO();
         //调用业务逻辑方法
-        LinkedList<ScoreDTO> scoreslist=dao.queryAllScores();
-        request.setAttribute("scoreslist",scoreslist);
-        RequestDispatcher requestDispatcher=request.getRequestDispatcher("scoreinfo.jsp");
-        requestDispatcher.forward(request, response);
+        LinkedList<CourseDTO> courselist = dao.queryAllCourse();
 
+        request.setAttribute("courselist", courselist);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("courseinfo.jsp");
+        requestDispatcher.forward(request, response);
     }
 }
