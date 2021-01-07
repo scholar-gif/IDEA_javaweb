@@ -206,6 +206,16 @@ else {
                     </select></td>
                 </tr>
                 <tr>
+                    <td><label>学院:</label></td>
+                    <td>
+                    <input type="radio" name="userType" value="">无
+                    <input type="radio" name="userType" value="信息学院">信息学院
+                    <input type="radio" name="userType" value="外语学院">外语学院
+                    <input type="radio" name="userType" value="语文学院">语文学院
+                    </td>
+
+                </tr>
+                <tr>
                     <td><label></label></td>
                     <td>
                         <input type="button" id="btnSubmit" name="btnSubmit" value="添加" class="mybutton" onclick="add()"/>&nbsp&nbsp&nbsp
