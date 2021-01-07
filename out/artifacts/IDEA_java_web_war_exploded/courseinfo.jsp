@@ -64,7 +64,7 @@ else {
 <div class="leftnav">
     <a href="courseinfo">课程信息</a><br>
     <%if("admin".equals(session.getAttribute("users"))){%>
-    <a href="studentManage">课程管理</a><br>
+    <a href="coursemanage">课程管理</a><br>
     <a href="addcourse.jsp">添加课程</a>
     <%}%>
 </div>
@@ -74,48 +74,27 @@ else {
     <c:if test="${5<4}" var="hello" scope="session">
         hello
     </c:if>
-    <form action="querycourse">
-        <div><label>查询条件:</label>
-            <select name="select" style="height:27px">
-                <option>请选择</option>
-                <option value="课程号">课程号</option>
-                <option value="课程名">课程名</option>
-                <option value="所属学院">所属学院</option>
-                <option value="课程类型">课程类型</option>
-            </select>
-            <input type="text" name="selectvalue" size="20"/>
-            <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
-        </div>
-    </form>
     <form action="delstudent">
         <table border="1" align="center" class="infolist">
             <tr class="tableheader">
-                <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
                 <th>课程号</th>
                 <th>课程名称</th>
                 <th>课程类型</th>
                 <th>课程学分</th>
                 <th>上课的学院</th>
-                <th>更新</th>
-                <th>删除</th>
             </tr>
 
             <c:forEach items="${requestScope.courselist}" var="course">
                 <tr align="center">
-                    <td><input type="checkbox" name="cbxcourse" value="${course.courseId}"></td>
                     <td>${course.courseId}</td>
                     <td>${course.courseName}</td>
                     <td>${course.courseType}</td>
                     <td>${course.courseXf}</td>
                     <td>${course.studentDept}</td>
-                    <td><a href="getcourseinfo?courseId=${course.courseId}"style="text-decoration: none;">更新</a></td>
-                    <td><a href="delcourse?courseId=${course.courseId}" style="text-decoration: none;">删除</a></td>
                 </tr>
             </c:forEach>
         </table>
         <br>
-        <input type="submit" name="btnDelete" class="mybutton" value="删除"/>&nbsp&nbsp&nbsp
-        <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addcourse.jsp'"/>
     </form>
 </div>
 

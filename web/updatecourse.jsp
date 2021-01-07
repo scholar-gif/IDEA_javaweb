@@ -46,7 +46,7 @@ else {
 %>
 <%--左导航--%>
 <div class="leftnav">课程信息</a><br>
-    <a href="studentmanage">课程管理</a><br>
+    <a href="coursemanage">课程管理</a><br>
     <a href="addstudent.jsp">添加管理</a>
 </div>
 
@@ -66,8 +66,12 @@ else {
             </tr>
 
             <tr>
-                <td><label for="courseType">课程类型:</label></td>
-                <td><input type="text" id="courseType" name="courseType" class="myinput" value="${course.courseType}"/></td>
+                <td><label>课程类型:</label></td>
+                <td><select name="courseType">
+                    <option>--请选择--</option>
+                    <option value="选修 " ${course.courseType=='选修'?'selected':''}>选修</option>
+                    <option value="必修 " ${course.courseType=='必修'?'selected':''}>必修</option>
+                </select></td>
             </tr>
 
             <tr>
@@ -76,8 +80,16 @@ else {
             </tr>
 
             <tr>
-                <td><label for="studentDept">上课学院:</label></td>
-                <td><input type="text" id="studentDept" name="studentDept" class="myinput" value="${course.studentDept}"/></td>
+                <td><label>学院:</label></td>
+                <td> <select  name="studentDept">
+                    <option value="艺术学院 " ${course.studentDept == '艺术学院' ? 'selected': '' }>艺术学院</option>
+                    <option value="商学院 " ${course.studentDept == '商学院' ? 'selected': '' }>商学院</option>
+                    <option value="土建学院 " ${course.studentDept == '土建学院' ? 'selected': '' }>土建学院</option>
+                    <option value="智能制造学院 " ${course.studentDept == '智能制造学院' ? 'selected': '' }>智能制造学院</option>
+                    <option value="制药学院 " ${course.studentDept == '制药学院' ? 'selected': '' }>制药学院</option>
+                    <option value="信息学院" ${course.studentDept == '信息学院' ? 'selected': '' }>信息学院</option>
+                    <option value="体育学院" ${course.studentDept == '体育学院' ? 'selected': '' }>体育学院</option>
+                </select></td>
             </tr>
 
             <tr>

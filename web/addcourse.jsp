@@ -53,7 +53,7 @@ else {
 <%--左导航--%>
 <div class="leftnav">
     <a href="courseinfo">课程信息</a><br>
-    <a href="studentManage">课程管理</a><br>
+    <a href="coursemanage">课程管理</a><br>
     <a href="addcourse.jsp">添加课程</a>
 </div>
 
@@ -64,27 +64,40 @@ else {
         <table align="center">
             <tr>
                 <td><label for="courseId">课程号:</label></td>
-                <td><input type="text" id="courseId" name="courseId" class="myinput" value="${course.courseId}"/></td>
+                <td><input type="text" id="courseId" name="courseId" class="myinput"/></td>
             </tr>
 
             <tr>
                 <td><label for="courseName">课程名:</label></td>
-                <td><input type="text" id="courseName" name="courseName" class="myinput" value="${course.courseName}"/></td>
+                <td><input type="text" id="courseName" name="courseName" class="myinput"/></td>
             </tr>
 
             <tr>
-                <td><label for="courseType">课程类型:</label></td>
-                <td><input type="text" id="courseType" name="courseType" class="myinput" value="${course.courseType}"/></td>
+                <td><label>课程类型:</label></td>
+                <td><select name="courseType">
+                    <option>--请选择--</option>
+                    <option value="选修 ">选修</option>
+                    <option value="必修 ">必修</option>
+                </select></td>
             </tr>
 
             <tr>
                 <td><label for="courseXf">课程学分:</label></td>
-                <td><input type="text" id="courseXf" name="courseXf" class="myinput" value="${course.courseXf}"/></td>
+                <td><input type="text" id="courseXf" name="courseXf" class="myinput" /></td>
             </tr>
 
             <tr>
-                <td><label for="studentDept">上课学院:</label></td>
-                <td><input type="text" id="studentDept" name="studentDept" class="myinput" value="${course.studentDept}"/></td>
+                <td><label>上课学院:</label></td>
+                <td><select name="studentDept">
+                    <option>--请选择--</option>
+                    <option value="艺术学院 ">艺术学院</option>
+                    <option value="商学院 ">商学院</option>
+                    <option value="土建学院 ">土建学院</option>
+                    <option value="智能制造学院 ">智能制造学院</option>
+                    <option value="制药学院 ">制药学院</option>
+                    <option value="信息学院">信息学院</option>
+                    <option value="体育学院">体育学院</option>
+                </select></td>
             </tr>
 
             <tr>

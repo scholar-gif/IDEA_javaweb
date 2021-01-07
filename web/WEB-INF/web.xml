@@ -161,6 +161,15 @@
         <servlet-name>courseinfo</servlet-name>
         <url-pattern>/courseinfo</url-pattern>
     </servlet-mapping>
+    <!--成绩信息管理-->
+    <servlet>
+        <servlet-name>coursemanage</servlet-name>
+        <servlet-class>servlet.ScoreManageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>coursemanage</servlet-name>
+        <url-pattern>/coursemanage</url-pattern>
+    </servlet-mapping>
     <!--获取课程信息-->
     <servlet>
         <servlet-name>getcourseinfo</servlet-name>

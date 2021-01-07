@@ -46,7 +46,7 @@ else {
 %>
 <%--左导航--%>
 <div class="leftnav">课程信息</a><br>
-    <a href="studentmanage">课程管理</a><br>
+    <a href="coursemanage">课程管理</a><br>
     <a href="addstudent.jsp">添加管理</a>
 </div>
 
