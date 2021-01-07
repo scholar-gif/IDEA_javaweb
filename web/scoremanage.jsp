@@ -33,6 +33,7 @@
             if (pop != "")
                 alert(pop);
         }
+
         function selectAll() {
             var checklist = document.getElementsByName("cbxscore");
             if (document.getElementById("cbxAll").checked)//document.getElementById(" ")获取指定id值的对象，.checked若被选中则返回true
@@ -43,6 +44,13 @@
                     checklist[j].checked = 0;
         }
 
+        function del() {
+            if (!confirm("确定删除这些信息吗？")) {
+                return;
+            }
+            var delElt = document.getElementById("del");
+            delElt.submit();
+        }
     </script>
 
 </head>
@@ -50,20 +58,22 @@
 <body>
 <%--头部--%>
 <%
-    if("admin".equals(session.getAttribute("users"))){
+    if ("admin".equals(session.getAttribute("users"))) {
 %>
-<jsp:include page="header.jsp"/><%--动态包含--%>
-<%}
-else {
+<jsp:include page="header.jsp"/>
+<%--动态包含--%>
+<%
+} else {
 %>
-<jsp:include page="userheader.jsp"/><%--动态包含--%>
+<jsp:include page="userheader.jsp"/>
+<%--动态包含--%>
 <%
     }
 %>
 <%--左导航--%>
 <div class="leftnav">
     <a href="scoreinfo">成绩信息</a><br>
-    <%if("admin".equals(session.getAttribute("users"))){%>
+    <%if ("admin".equals(session.getAttribute("users"))) {%>
     <a href="scoremanage">成绩管理</a><br>
     <a href="addscore.jsp">添加成绩</a>
     <%}%>
@@ -85,7 +95,7 @@ else {
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
         </div>
     </form>
-    <form action="delscore">
+    <form action="delscore" id="del">
         <table border="1" align="center" class="infolist">
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
@@ -97,22 +107,23 @@ else {
                 <th>更新</th>
                 <th>删除</th>
             </tr>
-
             <c:forEach items="${requestScope.scoreslist}" var="score">
                 <tr align="center">
-                    <td><input type="checkbox" name="cbxscore" value="${score.courseName}"></td>
+                    <td><input type="checkbox" name="cbxscore" value=${score.studentId}${score.courseId}></td>
                     <td>${score.courseName}</td>
                     <td>${score.studentId}</td>
                     <td>${score.studentName}</td>
                     <td>${score.courseXf}</td>
                     <td>${score.score}</td>
-                    <td><a href="getscoreinfo?studentId=${score.studentId}&courseId=${score.courseId}" style="text-decoration: none;">更新</a></td>
-                    <td><a href="delscore?studentId=${score.studentId}&courseId=${score.courseId}" style="text-decoration: none;">删除</a></td>
+                    <td><a href="getscoreinfo?studentId=${score.studentId}&courseId=${score.courseId}"
+                           style="text-decoration: none;">更新</a></td>
+                    <td><a href="delscore?studentId=${score.studentId}&courseId=${score.courseId}"
+                           style="text-decoration: none;">删除</a></td>
                 </tr>
             </c:forEach>
         </table>
         <br>
-        <input type="submit" name="btnDelete" class="mybutton" value="删除"/>&nbsp&nbsp&nbsp
+        <input type="button" name="btnDelete" class="mybutton" value="删除" onclick="del()"/>&nbsp&nbsp&nbsp
         <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addscore.jsp'"/>
     </form>
 </div>

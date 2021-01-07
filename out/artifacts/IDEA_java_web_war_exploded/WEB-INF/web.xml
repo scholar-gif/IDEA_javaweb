@@ -164,7 +164,7 @@
     <!--成绩信息管理-->
     <servlet>
         <servlet-name>coursemanage</servlet-name>
-        <servlet-class>servlet.ScoreManageServlet</servlet-class>
+        <servlet-class>servlet.CourseManageServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>coursemanage</servlet-name>

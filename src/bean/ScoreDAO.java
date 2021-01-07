@@ -189,7 +189,7 @@ public class ScoreDAO {
         return b;
     }
 
-    public boolean delScoreId(ScoreDTO score) {
+    public boolean delScoreId(String courseId, String studentId) {
         boolean b = false;
 
         //定义数据库驱动程序请求
@@ -205,8 +205,8 @@ public class ScoreDAO {
             //创建预编译语句
             pstmt = con.prepareStatement(sql);
             //对SQL语句中的参数赋值
-            pstmt.setString(1, score.getCourseId());
-            pstmt.setString(2, score.getStudentId());
+            pstmt.setString(1, courseId);
+            pstmt.setString(2, studentId);
             //执行SQL语句
             int n = pstmt.executeUpdate();
 

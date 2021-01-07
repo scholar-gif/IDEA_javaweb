@@ -43,26 +43,12 @@
                 for (var j = 0; j < checklist.length; j++)
                     checklist[j].checked = 0;
         }
-        /* 获取选中的对象，并删除对应的对象 */
-        function deleteUser(){
-            var result="";
-            var count=0;
-            $(".checkb").each(function(){
-                if($(this).is(':checked')){
-                    result+=$(this).val()+",";
-                    count++;
-                }else{}
-            });
-            if(!confirm("确定删除这"+count+"件商品?")){
+        function del(){
+            if(!confirm("确定删除这些信息吗？")){
                 return;
             }
-            window.location.href= "leyigou/deletesomeUser?tag="+result;
-        }
-        function deletes(count,result){
-            if(!confirm("确定删除这"+count+"件商品?")){
-                return;
-            }
-            window.location.href= "leyigou/deletesomeUser?tag="+result;
+            var delElt = document.getElementById("del");
+            delElt.submit();
         }
     </script>
 </head>
@@ -107,7 +93,7 @@ else {
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
         </div>
     </form>
-    <form action="delstudent">
+    <form action="delstudent" id="del">
         <table border="1" align="center" class="infolist">
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
@@ -138,7 +124,7 @@ else {
             </c:forEach>
         </table>
         <br>
-        <input type="submit" name="btnDelete" class="mybutton" onclick="deleteUser()" value="删除"/>&nbsp&nbsp&nbsp
+        <input type="button" name="btnDelete" class="mybutton" value="删除" onclick="del()"/>&nbsp&nbsp&nbsp
         <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addstudent.jsp'"/>
     </form>
 

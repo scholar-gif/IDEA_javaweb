@@ -29,6 +29,7 @@ public class AddUserServlet extends HttpServlet {
         String userSex     =request.getParameter("userSex");
         String userEmail=request.getParameter("userEmail");
         String userBasic    =request.getParameter("userBasic");
+        String userType    =request.getParameter("userType");
         //封装到DTO中
         UserBean user= new UserBean();
         user.setUserName(userName);
@@ -36,6 +37,7 @@ public class AddUserServlet extends HttpServlet {
         user.setUserSex(userSex);
         user.setUserEmail(userEmail);
         user.setUserBasic(userBasic);
+        user.setUserType(userType);
         //创建模型对象
         UserBean dao= new UserBean();
 

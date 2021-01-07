@@ -15,19 +15,23 @@ import java.io.IOException;
 @WebServlet(name = "DelScoreServlet")
 public class DelCourseServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取请求信息
-        String courseId=request.getParameter("courseId");
+        String courseId = request.getParameter("courseId");
         System.out.println(courseId);
         //创建模型对象
         CourseDAO dao = new CourseDAO();
-
-        if(dao.delCourseId(courseId)){
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("courseinfo");
-            requestDispatcher.forward(request,response);
-        }
+        String[] cbxcourse = request.getParameterValues("cbxcourse");
+        if (courseId == null) {
+            for (String name : cbxcourse) {
+                dao.delCourseId(name);
+            }
+        } else
+            dao.delCourseId(courseId);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("courseinfo");
+        requestDispatcher.forward(request, response);
     }
 }

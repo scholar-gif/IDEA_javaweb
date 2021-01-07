@@ -427,7 +427,7 @@ public class UserBean {
             //创建连接对象
             con=DBManager.getConnection();
             //编写参数化SQl语句
-            String sql="insert into User_Table values(?,?,?,?,?)";
+            String sql="insert into User_Table values(?,?,?,?,?,?)";
             System.out.println(sql);
             //创建预编译语句
             pstmt=con.prepareStatement(sql);
@@ -437,6 +437,7 @@ public class UserBean {
             pstmt.setString(3,user.getUserSex());
             pstmt.setString(4,user.getUserEmail());
             pstmt.setString(5,user.getUserBasic());
+            pstmt.setString(6,user.getUserType());
             //执行SQL语句
             int n=pstmt.executeUpdate();
 

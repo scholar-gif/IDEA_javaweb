@@ -43,8 +43,13 @@
                 for (var j = 0; j < checklist.length; j++)
                     checklist[j].checked = 0;
         }
-
-
+        function del(){
+            if(!confirm("确定删除这些信息吗？")){
+                return;
+            }
+            var delElt = document.getElementById("del");
+            delElt.submit();
+        }
     </script>
 </head>
 
@@ -88,7 +93,7 @@ else {
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
         </div>
     </form>
-    <form action="delstudent">
+    <form action="delstudent" id="del">
         <table border="1" align="center" class="infolist">
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
@@ -119,7 +124,7 @@ else {
             </c:forEach>
         </table>
         <br>
-        <input type="submit" name="btnDelete" class="mybutton" value="删除"/>&nbsp&nbsp&nbsp
+        <input type="button" name="btnDelete" class="mybutton" value="删除" onclick="del()"/>&nbsp&nbsp&nbsp
         <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addstudent.jsp'"/>
     </form>
 
