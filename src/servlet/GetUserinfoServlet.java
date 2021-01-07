@@ -23,7 +23,8 @@ public class GetUserinfoServlet extends HttpServlet {
         System.out.println(user.getUserPwd());
         System.out.println(user.getUserSex());
         System.out.println(user.getUserEmail());
-        System.out.println(user.getUserBasic());
+        System.out.println(user.getUserType());
+        System.out.println(user.getUserDept());
 
         request.setAttribute("user",user);
         RequestDispatcher requestDispatcher=request.getRequestDispatcher("updateuser.jsp");

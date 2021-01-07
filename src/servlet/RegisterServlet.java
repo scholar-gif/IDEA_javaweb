@@ -23,11 +23,12 @@ import java.io.IOException;
             String userPwd = request.getParameter("userPwd");
             String userSex = request.getParameter("userSex");
             String userEmail = request.getParameter("userEmail");
-            String userBasic = request.getParameter("userBasic");
+            String userType = request.getParameter("userType");
+            String userDept = request.getParameter("userDept");
             //创建模型对象
             UserBean user = new UserBean();
             //调用业务逻辑方法
-            if (user.addUser(userName, userPwd, userSex, userEmail, userBasic))
+            if (user.addUser(userName, userPwd, userSex, userEmail, userType, userDept))
                 response.sendRedirect("logon.jsp");//注册成功跳转到登录界面
             else
                 response.sendRedirect("register.jsp");//注册失败重新进入注册页面

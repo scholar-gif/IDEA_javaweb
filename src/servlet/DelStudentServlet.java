@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "DelStudentServlet")
 public class DelStudentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,11 +22,16 @@ public class DelStudentServlet extends HttpServlet {
 
         //创建模型对象
         StudentDAO dao = new StudentDAO();
+        if (studentId == null) {
+            String[] cbxStudent = request.getParameterValues("cbxStudent");
+            for (String name : cbxStudent) {
+                dao.delStudentById(name);
+            }
+        } else
+            dao.delStudentById(studentId);
 
 
-        if(dao.delStudentById(studentId)){
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("studentinfo");
-            requestDispatcher.forward(request,response);
-        }
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("studentinfo");
+        requestDispatcher.forward(request, response);
     }
 }

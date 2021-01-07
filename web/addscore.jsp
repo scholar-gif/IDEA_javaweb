@@ -31,6 +31,13 @@
             if (pop != "")
                 alert(pop);
         }
+        function add(){
+            if(!confirm("添加成功")){
+                return;
+            }
+            var delElt = document.getElementById("del");
+            delElt.submit();
+        }
     </script>
 
 </head>
@@ -61,7 +68,7 @@ else {
 <%--主内容--%>
 <div class="content">
     <h1 id="title">添加成绩信息</h1><br>
-    <form name="addscore" action="addscore" method="post">
+    <form id="add" name="addscore" action="addscore" method="post">
         <table align="center">
             <tr>
                 <td><label for="courseId">课程号:</label></td>
@@ -81,9 +88,8 @@ else {
             <tr>
                 <td><label></label></td>
                 <td>
-                    <input type="submit" id="btnSubmit" name="btnSubmit" value="添加" class="mybutton"/>&nbsp&nbsp&nbsp
-                    <input type="button" id="btnCancel" name="btnCancel" value="取消" class="mybutton"
-                           onclick="window.location.href='scoreinfo'"/>
+                    <input type="submit" id="btnSubmit" name="btnSubmit" value="添加" class="mybutton" onclick="add()"/>&nbsp&nbsp&nbsp
+                    <input type="button" id="btnCancel" name="btnCancel" value="取消" class="mybutton" onclick="window.location.href='scoreinfo'"/>
                 </td>
             </tr>
         </table>

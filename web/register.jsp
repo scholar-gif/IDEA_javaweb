@@ -217,11 +217,26 @@
             <tr>
                 <td><label>用户类型:</label></td>
                 <td>
-                    <input type="radio" name="userBasic" value="admin">管理员
-                    <input type="radio" name="userBasic" value="users">学生
+                    <input type="radio" name="userType" value="admin">管理员
+                    <input type="radio" name="userType" value="users">学生
                 </td>
+
             </tr>
-            <tr><td height="20px"></td></tr>
+
+            <tr>
+                <td><label>学院:</label></td>
+                <td><select name="userDept">
+                    <option>--请选择--</option>
+                    <option value="无">管理员</option>
+                    <option value="艺术学院">艺术学院</option>
+                    <option value="商学院">商学院</option>
+                    <option value="土建学院">土建学院</option>
+                    <option value="智能制造学院">智能制造学院</option>
+                    <option value="制药学院">制药学院</option>
+                    <option value="信息学院">信息学院</option>
+                    <option value="体育学院">体育学院</option>
+                </select></td>
+            </tr>
             <tr>
 
                 <td colspan="2" align="center">

@@ -43,26 +43,18 @@
                 for (var j = 0; j < checklist.length; j++)
                     checklist[j].checked = 0;
         }
-        /* 获取选中的对象，并删除对应的对象 */
-        function deleteUser(){
-            var result="";
-            var count=0;
-            $(".checkb").each(function(){
-                if($(this).is(':checked')){
-                    result+=$(this).val()+",";
-                    count++;
-                }else{}
-            });
-            if(!confirm("确定删除这"+count+"件商品?")){
+        function del(){
+            if(!confirm("确定删除这些信息吗？")){
                 return;
             }
-            window.location.href= "leyigou/deletesomeUser?tag="+result;
+            var delElt = document.getElementById("del");
+            delElt.submit();
         }
-        function deletes(count,result){
-            if(!confirm("确定删除这"+count+"件商品?")){
-                return;
+        function dels(hef1){
+            var b =confirm("确定是否删除此信息");
+            if (b){
+                window.location.href="delstudent?studentid="+hef1;
             }
-            window.location.href= "leyigou/deletesomeUser?tag="+result;
         }
     </script>
 </head>
@@ -91,7 +83,6 @@ else {
 <div class="content">
     <c:if test="${5<4}" var="hello" scope="session">
         hello
-
     </c:if>
     <form action="querystudents">
         <div><label>查询条件:</label>
@@ -107,8 +98,9 @@ else {
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
         </div>
     </form>
-    <form action="delstudent">
-        <table border="1" align="center" class="infolist">
+    <form action="delstudent" id="del">
+        <table border="1" align="center" class="infolist" cellpadding="5">
+            <COL WIDTH=10><COL WIDTH=100><COL WIDTH=100><COL WIDTH=80><COL WIDTH=150><COL WIDTH=110><COL WIDTH=110><COL WIDTH=80><COL WIDTH=80>
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
                 <th>学号</th>
@@ -133,12 +125,12 @@ else {
                     <td>${student.studentMajor}</td>
                     <td>${student.studentClassId}</td>
                     <td><a href="getstudentinfo?studentid=${student.studentId}" style="text-decoration: none;">更新</a></td>
-                    <td><a href="delstudent?studentid=${student.studentId}" style="text-decoration: none;">删除</a></td>
+                    <td><input type="button" onclick="dels(${student.studentId})" value="删除"></td>
                 </tr>
             </c:forEach>
         </table>
         <br>
-        <input type="submit" name="btnDelete" class="mybutton" onclick="deleteUser()" value="删除"/>&nbsp&nbsp&nbsp
+        <input type="button" name="btnDelete" class="mybutton" value="删除" onclick="del()"/>&nbsp&nbsp&nbsp
         <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addstudent.jsp'"/>
     </form>
 

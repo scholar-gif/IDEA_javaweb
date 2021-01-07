@@ -128,9 +128,9 @@
                 </td>
             </tr>
 
-            <tr>
+          <%--  <tr>
                 <td colspan="2" align="right"><a href="register.jsp" style="text-decoration: none">新用户注册</a></td>
-            </tr>
+            </tr>--%>
         </table>
     </form>
 </fieldset>

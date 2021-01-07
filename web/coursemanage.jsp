@@ -42,7 +42,19 @@
                 for (var j = 0; j < checklist.length; j++)
                     checklist[j].checked = 0;
         }
-        
+        function del(){
+            if(!confirm("确定删除这些信息吗？")){
+                return;
+            }
+            var delElt = document.getElementById("del");
+            delElt.submit();
+        }
+        function dels(hef1){
+            var b =confirm("确定是否删除此信息");
+            if (b){
+                window.location.href="delcourse?courseId="+hef1;
+            }
+        }
     </script>
 
 </head>
@@ -87,8 +99,9 @@ else {
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
         </div>
     </form>
-    <form action="delstudent">
-        <table border="1" align="center" class="infolist">
+    <form action="delcourse" id="del">
+        <table border="1" align="center" class="infolist" cellpadding="5">
+            <COL WIDTH=10><COL WIDTH=100><COL WIDTH=150><COL WIDTH=80><COL WIDTH=80><COL WIDTH=110><COL WIDTH=80><COL WIDTH=80>
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
                 <th>课程号</th>
@@ -99,7 +112,6 @@ else {
                 <th>更新</th>
                 <th>删除</th>
             </tr>
-
             <c:forEach items="${requestScope.courselist}" var="course">
                 <tr align="center">
                     <td><input type="checkbox" name="cbxcourse" value="${course.courseId}"></td>
@@ -109,12 +121,12 @@ else {
                     <td>${course.courseXf}</td>
                     <td>${course.studentDept}</td>
                     <td><a href="getcourseinfo?courseId=${course.courseId}"style="text-decoration: none;">更新</a></td>
-                    <td><a href="delcourse?courseId=${course.courseId}" style="text-decoration: none;">删除</a></td>
+                    <td><input type="button" onclick="dels(${course.courseId})" value="删除"></td>
                 </tr>
             </c:forEach>
         </table>
         <br>
-        <input type="submit" name="btnDelete" class="mybutton" value="删除"/>&nbsp&nbsp&nbsp
+        <input type="button" name="btnDelete" class="mybutton" value="删除" onclick="del()"/>&nbsp&nbsp&nbsp
         <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addcourse.jsp'"/>
     </form>
 </div>

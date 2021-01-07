@@ -134,10 +134,13 @@ else {
 %>
 <%--左导航--%>
 <div class="leftnav">
-    <a href="userinfo">用户信息</a><br>
     <%if("admin".equals(session.getAttribute("users"))){%>
+    <a href="userinfo">用户信息</a><br>
     <a href="usermanage">用户管理</a><br>
     <a href="adduser.jsp">添加用户</a>
+    <%}
+    else {%>
+    <a>个人信息</a><br>
     <%}%>
 </div>
 
@@ -177,6 +180,27 @@ else {
                         <span id="emailtip" class="tip">请输入邮箱名</span>
                         <span id="emailerr" class="err"></span>
                     </td>
+                </tr>
+                <tr>
+                    <td><label>用户类型:</label></td>
+                    <td>
+                        <input type="radio" name="userType" value="admin" ${user.userType=='admin'? 'checked':''}>管理员
+                        <input type="radio" name="userType" value="users" ${user.userType=='users'? 'checked':''}>学生
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>学院:</label></td>
+                    <td><select name="userDept">
+                        <option>--请选择--</option>
+                        <option value="无"${user.userDept=='无'? 'selected = "selected"':''}>管理员</option>
+                        <option value="艺术学院"${user.userDept=='艺术学院'? 'selected = "selected"':''}>艺术学院</option>
+                        <option value="商学院"${user.userDept=='商学院'? 'selected = "selected"':''}>商学院</option>
+                        <option value="土建学院"${user.userDept=='土建学院'? 'selected = "selected"':''}>土建学院</option>
+                        <option value="智能制造学院"${user.userDept=='智能制造学院'? 'selected = "selected"':''}>智能制造学院</option>
+                        <option value="制药学院"${user.userDept=='制药学院'? 'selected = "selected"':''}>制药学院</option>
+                        <option value="信息学院"${user.userDept=='信息学院'? 'selected = "selected"':''}>信息学院</option>
+                        <option value="体育学院"${user.userDept=='体育学院'? 'selected = "selected"':''}>体育学院</option>
+                    </select></td>
                 </tr>
                 <tr>
                     <td><label></label></td>

@@ -71,11 +71,9 @@ else {
 
 <%--主内容--%>
 <div class="content">
-    <c:if test="${5<4}" var="hello" scope="session">
-        hello
-    </c:if>
     <form action="delscore">
-        <table border="1" align="center" class="infolist">
+        <table border="1" align="center" class="infolist" cellpadding="3">
+            <COL WIDTH=120><COL WIDTH=80><COL WIDTH=80><COL WIDTH=80><COL WIDTH=80>
             <tr class="tableheader">
                 <th>课程名称</th>
                 <th>学号</th>

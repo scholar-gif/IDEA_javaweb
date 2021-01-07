@@ -63,9 +63,11 @@ else {
 <%--左导航--%>
 
 <div class="leftnav">
+    <%if("admin".equals(session.getAttribute("users"))) {%>
     <a href="userinfo">用户信息</a><br>
-    <a href="usermanage">用户管理</a><br>
-    <a href="adduser.jsp">添加用户</a>
+        <a href="usermanage">用户管理</a><br>
+        <a href="adduser.jsp">添加用户</a>
+    <%}%>
 </div>
 
 <%--主内容--%>
@@ -74,7 +76,8 @@ else {
         hello
     </c:if>
     <form action="delstudent">
-        <table border="1" align="center" class="infolist">
+        <table border="1" align="center" class="infolist" cellpadding="5">
+            <COL WIDTH=100><COL WIDTH=100><COL WIDTH=80><COL WIDTH="200"><COL WIDTH=80>
             <tr class="tableheader">
                 <th>用户名</th>
                 <th>密码</th>
@@ -89,7 +92,7 @@ else {
                     <td>${user.userPwd}</td>
                     <td>${user.userSex}</td>
                     <td>${user.userEmail}</td>
-                    <td>${user.userBasic}</td>
+                    <td>${user.userType}</td>
                 </tr>
             </c:forEach>
         </table>

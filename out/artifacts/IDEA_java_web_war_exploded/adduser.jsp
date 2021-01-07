@@ -114,8 +114,13 @@
                 }
             }
         }
-
-
+        function add(){
+            if(!confirm("添加成功")){
+                return;
+            }
+            var delElt = document.getElementById("del");
+            delElt.submit();
+        }
     </script>
 </head>
 
@@ -136,13 +141,13 @@ else {
 <div class="leftnav">
     <a href="userinfo">用户信息</a><br>
     <a href="usermanage">用户管理</a><br>
-    <a href="addstudent.jsp">添加用户</a>
+    <a href="adduser">添加用户</a>
 </div>
 
 <%--主内容--%>
 <div class="content">
-        <h1 id="title">更新用户信息</h1>
-        <form  name="adduser" action="adduser" method="post" >
+        <h1 id="title">添加用户信息</h1>
+        <form id="add" name="adduser" action="adduser" method="post" >
             <table align="center" ><!--表格行间距和对齐方式-->
                 <tr>
                     <td><label for="userName">用户名:</label></td>
@@ -180,15 +185,30 @@ else {
                 <tr>
                     <td><label>用户类型:</label></td>
                     <td>
-                    <input type="radio" name="userBasic" value="admin">管理员
-                    <input type="radio" name="userBasic" value="users">学生
+                    <input type="radio" name="userType" value="admin">管理员
+                    <input type="radio" name="userType" value="users">学生
                     </td>
 
+                </tr>
+
+                <tr>
+                    <td><label>学院:</label></td>
+                    <td><select name="userDept">
+                        <option>--请选择--</option>
+                        <option value="无">管理员</option>
+                        <option value="艺术学院">艺术学院</option>
+                        <option value="商学院">商学院</option>
+                        <option value="土建学院">土建学院</option>
+                        <option value="智能制造学院">智能制造学院</option>
+                        <option value="制药学院">制药学院</option>
+                        <option value="信息学院">信息学院</option>
+                        <option value="体育学院">体育学院</option>
+                    </select></td>
                 </tr>
                 <tr>
                     <td><label></label></td>
                     <td>
-                        <input type="submit" id="btnSubmit" name="btnSubmit" value="添加" class="mybutton"/>&nbsp&nbsp&nbsp
+                        <input type="button" id="btnSubmit" name="btnSubmit" value="添加" class="mybutton" onclick="add()"/>&nbsp&nbsp&nbsp
                         <input type="button" id="btnCancel" name="btnCancel" value="取消" class="mybutton" onclick="window.location.href='userinfo'"/>
                     </td>
                 </tr>

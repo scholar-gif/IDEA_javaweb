@@ -104,7 +104,7 @@ input {
 .nav { /*导航栏*/
     width: 100%; /*宽度*/
     height: 3%; /*高度*/
-    text-align: left; /*文本对齐方式*/
+    text-align: center; /*文本对齐方式*/
     background:rgba(47,84,150,0.6);/*背景颜色*/
     padding-top: 5px;
     padding-bottom: 10px;
@@ -112,7 +112,7 @@ input {
 
 .nav a { /*导航内容*/
     width: 20%; /*宽度*/
-    text-align: left; /*文本对齐方式*/
+    text-align: center; /*文本对齐方式*/
     font-size: 16px;
     padding: 5px 20px;
 }
@@ -143,13 +143,14 @@ input {
     text-align: center; /*文本对齐方式*/
     background-color: #ffffff; /*背景颜色*/
     border: 1px solid lightgray;
-    padding:5px;
+    padding: 5px;
     float: left;
 }
 
 .infolist{
     font-size: 14px;
     color:saddlebrown;
+    table-layout:fixed;
 }
 
 .tableheader{
@@ -160,7 +161,7 @@ input {
 /*底部*/
 .footer {
     width:100%; /*宽度*/
-    height:2%; /*高度*/
+    height:5%; /*高度*/
     text-align:center; /*文本对齐方式*/
     background-color:#2F5496; /*背景颜色*/
     color: white;

@@ -42,7 +42,19 @@
                 for (var j = 0; j < checklist.length; j++)
                     checklist[j].checked = 0;
         }
-
+        function del(){
+            if(!confirm("确定删除这些信息吗？")){
+                return;
+            }
+            var delElt = document.getElementById("del");
+            delElt.submit();
+        }
+        function dels(hef1){
+            var b =confirm("确定是否删除此信息");
+            if (b){
+                window.location.href="deluser?username="+hef1;
+            }
+        }
     </script>
 
 </head>
@@ -85,8 +97,9 @@ else {
             <input type="submit" name="btnSearch" class="mybutton" value="查询"/>
         </div>
     </form>
-    <form action="delstudent">
-        <table border="1" align="center" class="infolist">
+    <form action="deluser" id="del">
+        <table border="1" align="center" class="infolist" cellpadding="5">
+            <COL WIDTH=10><COL WIDTH=100><COL WIDTH=100><COL WIDTH=80><COL WIDTH="200"><COL WIDTH=80><COL WIDTH=80><COL WIDTH=80>
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
                 <th>用户名</th>
@@ -94,26 +107,28 @@ else {
                 <th>性别</th>
                 <th>邮箱</th>
                 <th>用户类型</th>
+                <th>所属学院</th>
                 <th>更新</th>
                 <th>删除</th>
             </tr>
-
             <c:forEach items="${requestScope.userlist}" var="user">
+
                 <tr align="center">
                     <td><input type="checkbox" name="cbxUser" value="${user.userName}"></td>
                     <td>${user.userName}</td>
                     <td>${user.userPwd}</td>
                     <td>${user.userSex}</td>
                     <td>${user.userEmail}</td>
-                    <td>${user.userBasic}</td>
+                    <td>${user.userType}</td>
+                    <td>${user.userDept}</td>
                     <td><a href="getuserinfo?username=${user.userName}"style="text-decoration: none;">更新</a></td>
-                    <td><a href="deluser?username=${user.userName}" style="text-decoration: none;">删除</a></td>
+                    <td><input type="button" onclick="dels(${user.userName})" value="删除"></td>
                 </tr>
             </c:forEach>
         </table>
         <br>
-        <input type="submit" name="btnDelete" class="mybutton" value="删除"/>&nbsp&nbsp&nbsp
-        <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='addstudent.jsp'"/>
+        <input type="button" name="btnDelete" class="mybutton" value="删除" onclick="del()"/>&nbsp&nbsp&nbsp
+        <input type="button" name="btnAdd" class="mybutton" value="添加" onclick="window.location.href='adduser.jsp'"/>
     </form>
 </div>
 

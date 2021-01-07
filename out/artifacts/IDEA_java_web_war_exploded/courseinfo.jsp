@@ -3,7 +3,6 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-    //LinkedList<StudentDTO> studentlist=(LinkedList<StudentDTO>)request.getAttribute("studentlist");
 
     //防止未登陆就进入主页
     if (session.getAttribute("userid") == null)
@@ -62,10 +61,13 @@ else {
 %>
 <%--左导航--%>
 <div class="leftnav">
-    <a href="courseinfo">课程信息</a><br>
     <%if("admin".equals(session.getAttribute("users"))){%>
+    <a href="courseinfo">课程信息</a><br>
     <a href="coursemanage">课程管理</a><br>
     <a href="addcourse.jsp">添加课程</a>
+    <%}
+    else {%>
+    <a>课程信息</a><br>
     <%}%>
 </div>
 
@@ -75,7 +77,8 @@ else {
         hello
     </c:if>
     <form action="delstudent">
-        <table border="1" align="center" class="infolist">
+        <table border="1" align="center" class="infolist" cellpadding="5">
+            <COL WIDTH=100><COL WIDTH=150><COL WIDTH=80><COL WIDTH=80><COL WIDTH=110>
             <tr class="tableheader">
                 <th>课程号</th>
                 <th>课程名称</th>

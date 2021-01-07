@@ -9,11 +9,11 @@ public class UserBean {
     private String userPwd;
     private String userSex;
     private String userEmail;
-    private String userBasic;
     private String userType;
+    private String userDept;
 
-    public String getUserType() {return userType; }
-    public void setUserType(String userType) { this.userType = userType; }
+    public String getUserDept() {return userDept; }
+    public void setUserDept(String userDept) { this.userDept = userDept; }
     public String getUserName() {
         return userName;
     }
@@ -41,11 +41,11 @@ public class UserBean {
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
-    public String getUserBasic() {
-        return userBasic;
+    public String getUserType() {
+        return userType;
     }
-    public void setUserBasic(String userBasic) {
-        this.userBasic = userBasic;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     //登录验证
@@ -142,8 +142,8 @@ public class UserBean {
                 user.setUserPwd(rs.getString(2));
                 user.setUserSex(rs.getString(3));
                 user.setUserEmail(rs.getString(4));
-                user.setUserBasic(rs.getString(5));
-                user.setUserType(rs.getString(6));
+                user.setUserType(rs.getString(5));
+                user.setUserDept(rs.getString(6));
             }
         }
         catch(ClassNotFoundException e){
@@ -164,7 +164,7 @@ public class UserBean {
     }
 
     //注册验证
-    public boolean addUser(String userName, String userPwd, String userSex, String userEmail, String userBasic) {
+    public boolean addUser(String userName, String userPwd, String userSex, String userEmail, String userType,  String userDept) {
         boolean b=false;
 
         Connection con=null;
@@ -174,7 +174,7 @@ public class UserBean {
             //创建连接对象
             con=DBManager.getConnection();
             //编写参数化SQl语句
-            String sql="insert into User_Table values(?,?,?,?,?)";
+            String sql="insert into User_Table values(?,?,?,?,?,?)";
             System.out.println(sql);
             //创建预编译语句
             pstmt=con.prepareStatement(sql);
@@ -183,7 +183,8 @@ public class UserBean {
             pstmt.setString(2,userPwd);
             pstmt.setString(3,userSex);
             pstmt.setString(4,userEmail);
-            pstmt.setString(5,userBasic);
+            pstmt.setString(5,userType);
+            pstmt.setString(6,userDept);
 
             //执行SQL语句
             int n=pstmt.executeUpdate();
@@ -228,7 +229,8 @@ public class UserBean {
                 user.setUserPwd(rs.getString(2));
                 user.setUserSex(rs.getString(3));
                 user.setUserEmail(rs.getString(4));
-                user.setUserBasic(rs.getString(5));
+                user.setUserType(rs.getString(5));
+                user.setUserDept(rs.getString(6));
                 userlist.add(user);
             }
         }
@@ -286,7 +288,7 @@ public class UserBean {
                 user.setUserPwd(rs.getString(2));
                 user.setUserSex(rs.getString(3));
                 user.setUserEmail(rs.getString(4));
-                user.setUserBasic(rs.getString(5));
+                user.setUserType(rs.getString(5));
                 userlist.add(user);
             }
         }
@@ -360,7 +362,8 @@ public class UserBean {
                 user.setUserPwd(rs.getString(2));
                 user.setUserSex(rs.getString(3));
                 user.setUserEmail(rs.getString(4));
-                user.setUserBasic(rs.getString(5));
+                user.setUserType(rs.getString(5));
+                user.setUserDept(rs.getString(6));
             }
         }
 
@@ -385,7 +388,7 @@ public class UserBean {
             //创建连接对象
             con=DBManager.getConnection();
             //编写参数化SQl语句
-            String sql="update User_Table set user_password = ?, user_sex = ?, user_email = ?, user_basic = ?"
+            String sql="update User_Table set user_password = ?, user_sex = ?, user_email = ?, user_type = ?, user_dept = ?"
                     +" where user_name = ?";
 
             System.out.println(sql);
@@ -395,8 +398,9 @@ public class UserBean {
             pstmt.setString(1,user.getUserPwd());
             pstmt.setString(2,user.getUserSex());
             pstmt.setString(3,user.getUserEmail());
-            pstmt.setString(4,user.getUserBasic());
-            pstmt.setString(5,user.getUserName());
+            pstmt.setString(4,user.getUserType());
+            pstmt.setString(5,user.getUserDept());
+            pstmt.setString(6,user.getUserName());
             //执行SQL语句
             int n=pstmt.executeUpdate();
 
@@ -427,7 +431,7 @@ public class UserBean {
             //创建连接对象
             con=DBManager.getConnection();
             //编写参数化SQl语句
-            String sql="insert into User_Table values(?,?,?,?,?)";
+            String sql="insert into User_Table values(?,?,?,?,?,?)";
             System.out.println(sql);
             //创建预编译语句
             pstmt=con.prepareStatement(sql);
@@ -436,7 +440,8 @@ public class UserBean {
             pstmt.setString(2,user.getUserPwd());
             pstmt.setString(3,user.getUserSex());
             pstmt.setString(4,user.getUserEmail());
-            pstmt.setString(5,user.getUserBasic());
+            pstmt.setString(5,user.getUserType());
+            pstmt.setString(6,user.getUserDept());
             //执行SQL语句
             int n=pstmt.executeUpdate();
 

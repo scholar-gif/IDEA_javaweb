@@ -64,11 +64,12 @@ else {
 <div class="content">
     <c:if test="${5<4}" var="hello" scope="session">
         hello
-
     </c:if>
-
     <form action="delstudent">
-        <table border="1" align="center" class="infolist">
+        <table border="1" align="center" class="infolist" cellpadding="5">
+        <COL WIDTH=100><COL WIDTH=100><COL WIDTH=80><COL WIDTH=150><COL WIDTH=110><COL WIDTH=110><COL WIDTH=80>
+
+        <tr>
             <tr class="tableheader">
                 <th>学号</th>
                 <th>姓名</th>

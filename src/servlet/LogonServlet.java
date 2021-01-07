@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +34,7 @@ public class LogonServlet extends HttpServlet {
             HttpSession s = request.getSession();
             s.setAttribute("userid",userName);
             users = user.isUser(userName, userPwd);
-            s.setAttribute("users",users.getUserBasic());
+            s.setAttribute("users",users.getUserType());
             s.setAttribute("username",users);
             response.sendRedirect("main.jsp");//验证成功
         }

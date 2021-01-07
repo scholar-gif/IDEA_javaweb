@@ -1,7 +1,5 @@
 package servlet;
 
-import bean.StudentDAO;
-import bean.StudentDTO;
 import bean.UserBean;
 
 import javax.servlet.RequestDispatcher;
@@ -28,14 +26,16 @@ public class AddUserServlet extends HttpServlet {
         String userPwd    =request.getParameter("userPwd");
         String userSex     =request.getParameter("userSex");
         String userEmail=request.getParameter("userEmail");
-        String userBasic    =request.getParameter("userBasic");
+        String userType    =request.getParameter("userType");
+        String userDept    =request.getParameter("userDept");
         //封装到DTO中
         UserBean user= new UserBean();
         user.setUserName(userName);
         user.setUserPwd(userPwd);
         user.setUserSex(userSex);
         user.setUserEmail(userEmail);
-        user.setUserBasic(userBasic);
+        user.setUserType(userType);
+        user.setUserDept(userDept);
         //创建模型对象
         UserBean dao= new UserBean();
 
