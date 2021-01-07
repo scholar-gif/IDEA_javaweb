@@ -93,7 +93,7 @@ else {
                 <th>密码</th>
                 <th>性别</th>
                 <th>邮箱</th>
-                <th>基本信息</th>
+                <th>用户类型</th>
                 <th>更新</th>
                 <th>删除</th>
             </tr>
