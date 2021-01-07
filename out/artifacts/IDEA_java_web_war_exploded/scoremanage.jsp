@@ -51,6 +51,12 @@
             var delElt = document.getElementById("del");
             delElt.submit();
         }
+        function dels(hef1,hef2){
+            var b =confirm("确定是否删除此信息");
+            if (b){
+                window.location.href="delscore?studentId="+hef1+"&courseId="+hef2;
+            }
+        }
     </script>
 
 </head>
@@ -97,6 +103,7 @@
     </form>
     <form action="delscore" id="del">
         <table border="1" align="center" class="infolist">
+            <COL WIDTH=10> <COL WIDTH=120><COL WIDTH=80><COL WIDTH=80><COL WIDTH=80><COL WIDTH=80><COL WIDTH=80><COL WIDTH=80>
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
                 <th>课程名称</th>
@@ -115,10 +122,8 @@
                     <td>${score.studentName}</td>
                     <td>${score.courseXf}</td>
                     <td>${score.score}</td>
-                    <td><a href="getscoreinfo?studentId=${score.studentId}&courseId=${score.courseId}"
-                           style="text-decoration: none;">更新</a></td>
-                    <td><a href="delscore?studentId=${score.studentId}&courseId=${score.courseId}"
-                           style="text-decoration: none;">删除</a></td>
+                    <td><a href="getscoreinfo?studentId=${score.studentId}&courseId=${score.courseId}" style="text-decoration: none;">更新</a></td>
+                    <td><input type="button" onclick="dels(${score.studentId},${score.courseId})" value="删除"></td>
                 </tr>
             </c:forEach>
         </table>

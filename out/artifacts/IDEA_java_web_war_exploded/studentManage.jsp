@@ -50,6 +50,12 @@
             var delElt = document.getElementById("del");
             delElt.submit();
         }
+        function dels(hef1){
+            var b =confirm("确定是否删除此信息");
+            if (b){
+                window.location.href="delstudent?studentid="+hef1;
+            }
+        }
     </script>
 </head>
 
@@ -77,7 +83,6 @@ else {
 <div class="content">
     <c:if test="${5<4}" var="hello" scope="session">
         hello
-
     </c:if>
     <form action="querystudents">
         <div><label>查询条件:</label>
@@ -94,7 +99,8 @@ else {
         </div>
     </form>
     <form action="delstudent" id="del">
-        <table border="1" align="center" class="infolist">
+        <table border="1" align="center" class="infolist" cellpadding="5">
+            <COL WIDTH=10><COL WIDTH=100><COL WIDTH=100><COL WIDTH=80><COL WIDTH=150><COL WIDTH=110><COL WIDTH=110><COL WIDTH=80><COL WIDTH=80>
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
                 <th>学号</th>
@@ -119,7 +125,7 @@ else {
                     <td>${student.studentMajor}</td>
                     <td>${student.studentClassId}</td>
                     <td><a href="getstudentinfo?studentid=${student.studentId}" style="text-decoration: none;">更新</a></td>
-                    <td><a href="delstudent?studentid=${student.studentId}" style="text-decoration: none;">删除</a></td>
+                    <td><input type="button" onclick="dels(${student.studentId})" value="删除"></td>
                 </tr>
             </c:forEach>
         </table>

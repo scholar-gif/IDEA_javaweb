@@ -49,6 +49,12 @@
             var delElt = document.getElementById("del");
             delElt.submit();
         }
+        function dels(hef1){
+            var b =confirm("确定是否删除此信息");
+            if (b){
+                window.location.href="delcourse?courseId="+hef1;
+            }
+        }
     </script>
 
 </head>
@@ -94,7 +100,8 @@ else {
         </div>
     </form>
     <form action="delcourse" id="del">
-        <table border="1" align="center" class="infolist">
+        <table border="1" align="center" class="infolist" cellpadding="5">
+            <COL WIDTH=10><COL WIDTH=100><COL WIDTH=150><COL WIDTH=80><COL WIDTH=80><COL WIDTH=110><COL WIDTH=80><COL WIDTH=80>
             <tr class="tableheader">
                 <th><input type="checkbox" name="cbxAll" id="cbxAll" onclick="selectAll()"/></th>
                 <th>课程号</th>
@@ -114,7 +121,7 @@ else {
                     <td>${course.courseXf}</td>
                     <td>${course.studentDept}</td>
                     <td><a href="getcourseinfo?courseId=${course.courseId}"style="text-decoration: none;">更新</a></td>
-                    <td><a href="delcourse?courseId=${course.courseId}" style="text-decoration: none;">删除</a></td>
+                    <td><input type="button" onclick="dels(${course.courseId})" value="删除"></td>
                 </tr>
             </c:forEach>
         </table>
